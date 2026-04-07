@@ -1,0 +1,148 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+
+% Page setup
+\geometry{
+    a4paper,
+    left=0.75in,
+    right=0.75in,
+    top=0.75in,
+    bottom=0.75in
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdftitle={Kratika Jain - Resume},
+    pdfauthor={Kratika Jain}
+}
+
+% Section formatting
+\titleformat{\section}
+    {\large\bfseries}
+    {}
+    {0em}
+    {}
+    [\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{6pt}
+
+% Subsection formatting
+\titleformat{\subsection}[runin]
+    {\normalsize\bfseries}
+    {}
+    {0em}
+    {}
+    []
+\titlespacing*{\subsection}{0pt}{6pt}{4pt}
+
+% Remove paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Adjust list spacing
+\setlist[itemize]{left=0pt, itemsep=2pt, parsep=0pt, topsep=2pt}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\LARGE\textbf{KRATIKA JAIN}}\\[6pt]
+    Graphic Designer \& Visual Artist\\[8pt]
+    \href{mailto:kratikagangwal22@gmail.com}{kratikagangwal22@gmail.com} $|$ 
+    +91 9589718124 $|$ 
+    Ujjain, Madhya Pradesh, India
+\end{center}
+
+\vspace{4pt}
+
+% Professional Summary
+\section*{PROFESSIONAL SUMMARY}
+Passionate and detail-oriented graphic designer with hands-on experience in creating brand identities, social media creatives, and marketing visuals. Proven track record of designing for multiple brands including Student Yard, Qimati, Biginit Technologies, and Lumora Candles. Specializes in minimal, clean, and brand-aligned visual design that combines aesthetics with purpose. Proficient in Adobe Creative Suite, Figma, and Canva with strong skills in logo design, social media design, carousel layouts, and brand identity development.
+
+\vspace{2pt}
+
+% Experience Section
+\section*{PROFESSIONAL EXPERIENCE}
+
+\textbf{Student Yard} \hfill \textit{2025 -- Present}\\
+\textit{Graphic Design Intern} \hfill Ujjain, Madhya Pradesh
+\begin{itemize}
+    \item Create engaging Instagram carousel posts for leading stationery brands including Montex, Hauser, Maped, and Pierre Cardin, focusing on product features and visual storytelling
+    \item Design brand-aligned social media creatives that maintain consistent brand identity across campaigns
+    \item Collaborate closely with content and marketing teams to develop scroll-stopping layouts that improve engagement and reach
+    \item Implement minimal, clean design aesthetics to enhance visual appeal and brand recognition
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Biginit Technologies} \hfill \textit{2025}\\
+\textit{Graphic Designer -- Logo Design \& Visual Storytelling} \hfill Ujjain, Madhya Pradesh
+\begin{itemize}
+    \item Designed brand logos and visual identity assets for Design Dharma and Sthir, capturing each brand's unique essence and style
+    \item Created engaging Instagram posters and carousel creatives for digital marketing campaigns
+    \item Developed consistent visual layouts aligned with brand guidelines and tone of voice
+    \item Focused on clean, scroll-stopping designs to boost brand presence and social media engagement
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Qimati} \hfill \textit{2025}\\
+\textit{Brand \& Product Designer} \hfill Ujjain, Madhya Pradesh
+\begin{itemize}
+    \item Designed business cards and thank you inserts aligned with the premium jewelry brand's aesthetic
+    \item Created product display graphics and minimal packaging tags for luxury product lines
+    \item Contributed to overall brand feel with calming, luxury-inspired visual elements
+    \item Maintained brand consistency across all customer touchpoints
+\end{itemize}
+
+\vspace{4pt}
+
+\textbf{Lumora Candles} \hfill \textit{2025}\\
+\textit{Logo Designer (Project)} \hfill Ujjain, Madhya Pradesh
+\begin{itemize}
+    \item Designed logo for Lumora Candles, capturing calm and handcrafted brand essence
+    \item Developed brand identity elements aligned with eco-friendly and gifting-oriented approach
+    \item Assisted with brand presentation visuals for catalog and packaging mockups
+\end{itemize}
+
+\vspace{2pt}
+
+% Education Section
+\section*{EDUCATION}
+
+\textbf{Avantika University} \hfill \textit{2023 -- 2026}\\
+Bachelor of Computer Applications (BCA) \hfill Ujjain, Madhya Pradesh
+
+\vspace{4pt}
+
+\textbf{St. Paul's Convent} \hfill \textit{2020 -- 2023}\\
+Secondary School Education \hfill Ujjain, Madhya Pradesh
+
+\vspace{2pt}
+
+% Skills Section
+\section*{TECHNICAL SKILLS}
+
+\textbf{Design Software:} Adobe Illustrator, Adobe Photoshop, Figma, Canva, CorelDRAW\\[2pt]
+\textbf{Design Specializations:} Social Media Design, Branding \& Visual Identity, Carousel Design, Layout Design, Logo Design, Typography, Color Theory\\[2pt]
+\textbf{Additional Skills:} Design Thinking, Brand Strategy, Visual Storytelling, Product Design, Packaging Design\\[2pt]
+\textbf{Languages:} English (Fluent), Hindi (Native)
+
+\vspace{2pt}
+
+% Projects and Interests Section
+\section*{INTERESTS \& HOBBIES}
+
+\textbf{Handcrafted Candle Making:} Create handcrafted candles combining creativity through scents, colors, and design, blending relaxation with artistic expression
+
+\end{document}

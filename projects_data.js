@@ -1,7 +1,7 @@
 const projectsData = [
     {
-        "brand": "Pierre Cardin",
-        "title": "PC vell Fire",
+        "brand": "Aura",
+        "title": "Premium vell Fire",
         "folder": "Carousel/Pierre_Cardin/PC_vell_Fire",
         "images": [
             "1.jpg",
@@ -16,8 +16,8 @@ const projectsData = [
         "sort_order": 0
     },
     {
-        "brand": "Pierre Cardin",
-        "title": "PC Royal Salute white the gold roller pen",
+        "brand": "Aura",
+        "title": "Royal Salute white gold roller pen",
         "folder": "Carousel/Pierre_Cardin/PC_Royal_Salute_white_the_gold_roller_pen",
         "images": [
             "1.jpg",
@@ -32,8 +32,8 @@ const projectsData = [
         "sort_order": 1
     },
     {
-        "brand": "Pierre Cardin",
-        "title": "PC Coffee Brew",
+        "brand": "Aura",
+        "title": "Coffee Brew Collection",
         "folder": "Carousel/Pierre_Cardin/PC_Coffee_Brew",
         "images": [
             "1.jpg",
@@ -49,8 +49,8 @@ const projectsData = [
         "sort_order": 2
     },
     {
-        "brand": "Pierre Cardin",
-        "title": "PC Heritage",
+        "brand": "Aura",
+        "title": "Heritage Collection",
         "folder": "Carousel/Pierre_Cardin/PC_Heritage",
         "images": [
             "1.jpg",
@@ -66,7 +66,7 @@ const projectsData = [
         "sort_order": 3
     },
     {
-        "brand": "Pierre Cardin",
+        "brand": "Aura",
         "title": "Stain Gold Ball Pen",
         "folder": "Carousel/Pierre_Cardin/Stain_Gold_Ball_Pen",
         "images": [
@@ -82,8 +82,8 @@ const projectsData = [
         "sort_order": 4
     },
     {
-        "brand": "Pierre Cardin",
-        "title": "PC Coffee Irish",
+        "brand": "Aura",
+        "title": "Coffee Irish Collection",
         "folder": "Carousel/Pierre_Cardin/PC_Coffee_Irish",
         "images": [
             "1.jpg",
@@ -98,8 +98,8 @@ const projectsData = [
         "sort_order": 5
     },
     {
-        "brand": "Flair",
-        "title": "Flair Raw Pencil ",
+        "brand": "Nova",
+        "title": "Nova Raw Pencil ",
         "folder": "Carousel/Flair/Flair_Raw_Pencil_",
         "images": [
             "1.jpg",
@@ -115,8 +115,8 @@ const projectsData = [
         "sort_order": 10
     },
     {
-        "brand": "Hauser",
-        "title": "Hauser Art Venture",
+        "brand": "Lumina",
+        "title": "Lumina Art Venture",
         "folder": "Carousel/Hauser/Hauser_Art_Venture",
         "images": [
             "1.jpg",
@@ -134,8 +134,8 @@ const projectsData = [
         "sort_order": 11
     },
     {
-        "brand": "Hauser",
-        "title": "Hauser Xo Mate",
+        "brand": "Lumina",
+        "title": "Lumina Xo Mate",
         "folder": "Carousel/Hauser/Hauser_Xo_Mate",
         "images": [
             "1.jpg",
@@ -151,8 +151,8 @@ const projectsData = [
         "sort_order": 12
     },
     {
-        "brand": "Hauser",
-        "title": "Hauser Luma",
+        "brand": "Lumina",
+        "title": "Lumina Luma",
         "folder": "Carousel/Hauser/Hauser_Luma",
         "images": [
             "1.jpg",
@@ -168,8 +168,8 @@ const projectsData = [
         "sort_order": 13
     },
     {
-        "brand": "Doms",
-        "title": "Doms Art Vault Kit",
+        "brand": "Crea",
+        "title": "Crea Art Vault Kit",
         "folder": "Carousel/Doms/Doms_Art_Vault_Kit",
         "images": [
             "1.jpg",
@@ -185,8 +185,8 @@ const projectsData = [
         "sort_order": 6
     },
     {
-        "brand": "Doms",
-        "title": "Doms Smart Kit",
+        "brand": "Crea",
+        "title": "Crea Smart Kit",
         "folder": "Carousel/Doms/Doms_Smart_Kit",
         "images": [
             "1.jpg",
@@ -202,8 +202,8 @@ const projectsData = [
         "sort_order": 7
     },
     {
-        "brand": "Doms",
-        "title": "Doms Creatist Kit",
+        "brand": "Crea",
+        "title": "Crea Creatist Kit",
         "folder": "Carousel/Doms/Doms_Creatist_Kit",
         "images": [
             "1.jpg",
@@ -218,8 +218,8 @@ const projectsData = [
         "sort_order": 8
     },
     {
-        "brand": "Maped",
-        "title": "Maped Color'Peps Ocean 2",
+        "brand": "Oceana",
+        "title": "Oceana Color'Peps Ocean 2",
         "folder": "Carousel/Maped/Maped_Color'Peps_Ocean_2",
         "images": [
             "1.jpg",
@@ -234,8 +234,8 @@ const projectsData = [
         "sort_order": 9
     },
     {
-        "brand": "Montex",
-        "title": "Montex Ploom Chhota Bheem",
+        "brand": "Zenith",
+        "title": "Zenith Ploom Kids Edition",
         "folder": "Carousel/Montex/Montex_Ploom_Chhota_Bheem",
         "images": [
             "1.jpg",

@@ -61,6 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Projects found:", projectsData.length);
             renderProjects(projectsData, 'projects-grid');
 
+            // Render Logos (if data exists)
+            if (typeof logoData !== 'undefined') {
+                renderProjects(logoData, 'logos-grid');
+            }
+
             // Render Festive Posts (if data exists)
             if (typeof festiveData !== 'undefined') {
                 renderProjects(festiveData, 'festive-grid');

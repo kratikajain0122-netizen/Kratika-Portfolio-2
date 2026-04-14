@@ -1,7 +1,7 @@
 const projectsData = [
     {
-        "brand": "Aura",
-        "title": "Premium vell Fire",
+        "brand": "Pierre Cardin",
+        "title": "PC vell Fire",
         "folder": "Carousel/Pierre_Cardin/PC_vell_Fire",
         "images": [
             "1.jpg",
@@ -16,8 +16,8 @@ const projectsData = [
         "sort_order": 0
     },
     {
-        "brand": "Aura",
-        "title": "Royal Salute white gold roller pen",
+        "brand": "Pierre Cardin",
+        "title": "PC Royal Salute white the gold roller pen",
         "folder": "Carousel/Pierre_Cardin/PC_Royal_Salute_white_the_gold_roller_pen",
         "images": [
             "1.jpg",
@@ -32,8 +32,8 @@ const projectsData = [
         "sort_order": 1
     },
     {
-        "brand": "Aura",
-        "title": "Coffee Brew Collection",
+        "brand": "Pierre Cardin",
+        "title": "PC Coffee Brew",
         "folder": "Carousel/Pierre_Cardin/PC_Coffee_Brew",
         "images": [
             "1.jpg",
@@ -49,8 +49,8 @@ const projectsData = [
         "sort_order": 2
     },
     {
-        "brand": "Aura",
-        "title": "Heritage Collection",
+        "brand": "Pierre Cardin",
+        "title": "PC Heritage",
         "folder": "Carousel/Pierre_Cardin/PC_Heritage",
         "images": [
             "1.jpg",
@@ -66,7 +66,7 @@ const projectsData = [
         "sort_order": 3
     },
     {
-        "brand": "Aura",
+        "brand": "Pierre Cardin",
         "title": "Stain Gold Ball Pen",
         "folder": "Carousel/Pierre_Cardin/Stain_Gold_Ball_Pen",
         "images": [
@@ -82,8 +82,8 @@ const projectsData = [
         "sort_order": 4
     },
     {
-        "brand": "Aura",
-        "title": "Coffee Irish Collection",
+        "brand": "Pierre Cardin",
+        "title": "PC Coffee Irish",
         "folder": "Carousel/Pierre_Cardin/PC_Coffee_Irish",
         "images": [
             "1.jpg",
@@ -98,8 +98,8 @@ const projectsData = [
         "sort_order": 5
     },
     {
-        "brand": "Nova",
-        "title": "Nova Raw Pencil ",
+        "brand": "Flair",
+        "title": "Flair Raw Pencil ",
         "folder": "Carousel/Flair/Flair_Raw_Pencil_",
         "images": [
             "1.jpg",
@@ -115,8 +115,8 @@ const projectsData = [
         "sort_order": 10
     },
     {
-        "brand": "Lumina",
-        "title": "Lumina Art Venture",
+        "brand": "Hauser",
+        "title": "Hauser Art Venture",
         "folder": "Carousel/Hauser/Hauser_Art_Venture",
         "images": [
             "1.jpg",
@@ -134,8 +134,8 @@ const projectsData = [
         "sort_order": 11
     },
     {
-        "brand": "Lumina",
-        "title": "Lumina Xo Mate",
+        "brand": "Hauser",
+        "title": "Hauser Xo Mate",
         "folder": "Carousel/Hauser/Hauser_Xo_Mate",
         "images": [
             "1.jpg",
@@ -151,8 +151,8 @@ const projectsData = [
         "sort_order": 12
     },
     {
-        "brand": "Lumina",
-        "title": "Lumina Luma",
+        "brand": "Hauser",
+        "title": "Hauser Luma",
         "folder": "Carousel/Hauser/Hauser_Luma",
         "images": [
             "1.jpg",
@@ -168,8 +168,8 @@ const projectsData = [
         "sort_order": 13
     },
     {
-        "brand": "Crea",
-        "title": "Crea Art Vault Kit",
+        "brand": "Doms",
+        "title": "Doms Art Vault Kit",
         "folder": "Carousel/Doms/Doms_Art_Vault_Kit",
         "images": [
             "1.jpg",
@@ -185,8 +185,8 @@ const projectsData = [
         "sort_order": 6
     },
     {
-        "brand": "Crea",
-        "title": "Crea Smart Kit",
+        "brand": "Doms",
+        "title": "Doms Smart Kit",
         "folder": "Carousel/Doms/Doms_Smart_Kit",
         "images": [
             "1.jpg",
@@ -202,8 +202,8 @@ const projectsData = [
         "sort_order": 7
     },
     {
-        "brand": "Crea",
-        "title": "Crea Creatist Kit",
+        "brand": "Doms",
+        "title": "Doms Creatist Kit",
         "folder": "Carousel/Doms/Doms_Creatist_Kit",
         "images": [
             "1.jpg",
@@ -218,8 +218,8 @@ const projectsData = [
         "sort_order": 8
     },
     {
-        "brand": "Oceana",
-        "title": "Oceana Color'Peps Ocean 2",
+        "brand": "Maped",
+        "title": "Maped Color'Peps Ocean 2",
         "folder": "Carousel/Maped/Maped_Color'Peps_Ocean_2",
         "images": [
             "1.jpg",
@@ -234,8 +234,8 @@ const projectsData = [
         "sort_order": 9
     },
     {
-        "brand": "Zenith",
-        "title": "Zenith Ploom Kids Edition",
+        "brand": "Montex",
+        "title": "Montex Ploom Chhota Bheem",
         "folder": "Carousel/Montex/Montex_Ploom_Chhota_Bheem",
         "images": [
             "1.jpg",
@@ -274,6 +274,56 @@ const festiveData = [
         "description": "Festive Celebration Post",
         "instagram_link": "",
         "aspect_ratio": 0.8,
+        "sort_order": 999
+    },
+    {
+        "brand": "Festive",
+        "title": "BigInIT",
+        "folder": "Festive_Posts",
+        "images": [
+            "BigInIT.jpg"
+        ],
+        "description": "Festive Celebration Post",
+        "instagram_link": "",
+        "aspect_ratio": 1.0,
+        "sort_order": 999
+    }
+];
+const logoData = [
+    {
+        "brand": "Logo Designs",
+        "title": "Cafe Biblio",
+        "folder": "Logo",
+        "images": [
+            "Cafe Biblio.jpg"
+        ],
+        "description": "Logo Design",
+        "instagram_link": "",
+        "aspect_ratio": 2.904441453566622,
+        "sort_order": 999
+    },
+    {
+        "brand": "Logo Designs",
+        "title": "Design Dharma logo",
+        "folder": "Logo",
+        "images": [
+            "Design Dharma logo.jpg"
+        ],
+        "description": "Logo Design",
+        "instagram_link": "",
+        "aspect_ratio": 3.4211502782931356,
+        "sort_order": 999
+    },
+    {
+        "brand": "Logo Designs",
+        "title": "Sthir final ",
+        "folder": "Logo",
+        "images": [
+            "Sthir final .jpg"
+        ],
+        "description": "Logo Design",
+        "instagram_link": "",
+        "aspect_ratio": 0.91,
         "sort_order": 999
     }
 ];

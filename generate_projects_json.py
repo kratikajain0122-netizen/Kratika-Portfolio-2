@@ -93,12 +93,15 @@ def scan_directory(directory_name, filter_top_10=False):
              except Exception as e:
                  print(f"Error reading image {img_file}: {e}")
              
+             brand_name = "Logo Designs" if directory_name == "Logo" else "Festive"
+             desc_text = "Logo Design" if directory_name == "Logo" else "Festive Celebration Post"
+
              data.append({
-                "brand": "Festive",
+                "brand": brand_name,
                 "title": title_clean, 
                 "folder": directory_name,
                 "images": [img_file],
-                "description": "Festive Celebration Post",
+                "description": desc_text,
                 "instagram_link": "",
                 "aspect_ratio": aspect_ratio,
                 "sort_order": 999
@@ -179,9 +182,12 @@ projects = scan_directory("Carousel", filter_top_10=True)
 # Scan Festive Posts without filtering
 festive_projects = scan_directory("Festive_Posts", filter_top_10=False)
 
-js_content = f"const projectsData = {json.dumps(projects, indent=4)};\nconst festiveData = {json.dumps(festive_projects, indent=4)};"
+# Scan Logo without filtering
+logo_projects = scan_directory("Logo", filter_top_10=False)
+
+js_content = f"const projectsData = {json.dumps(projects, indent=4)};\nconst festiveData = {json.dumps(festive_projects, indent=4)};\nconst logoData = {json.dumps(logo_projects, indent=4)};"
 
 with open(output_file, "w") as f:
     f.write(js_content)
 
-print(f"Generated {output_file} with {len(projects)} curated projects and {len(festive_projects)} festive posts.")
+print(f"Generated {output_file} with {len(projects)} curated projects, {len(festive_projects)} festive posts, and {len(logo_projects)} logos.")

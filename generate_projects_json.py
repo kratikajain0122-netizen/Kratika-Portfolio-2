@@ -1,3 +1,4 @@
+#Thumbnail, stories, product design updated on 13th june 
 import os
 import json
 from PIL import Image

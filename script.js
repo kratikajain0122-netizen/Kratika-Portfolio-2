@@ -21,18 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+            const targetId = this.getAttribute('href').substring(1) || 'home';
+            window.location.hash = targetId;
+            // Close mobile menu if open
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
     });
@@ -50,6 +46,226 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 });
+// --- Slug and Category Mapping ---
+const categorySlugs = {
+    'projects-grid': 'instagram-carousels',
+    'logos-grid': 'logo-designs',
+    'festive-grid': 'festive-posts',
+    'thumbnails-grid': 'instagram-thumbnails',
+    'stories-grid': 'instagram-stories',
+    'product-design-grid': 'product-design'
+};
+
+const categorySlugToGridId = {
+    'instagram-carousels': 'projects-grid',
+    'logo-designs': 'logos-grid',
+    'festive-posts': 'festive-grid',
+    'instagram-thumbnails': 'thumbnails-grid',
+    'instagram-stories': 'stories-grid',
+    'product-design': 'product-design-grid'
+};
+
+let currentCategorySlug = null;
+
+function findProjectBySlug(slug) {
+    const datasets = [
+        typeof projectsData !== 'undefined' ? projectsData : [],
+        typeof logoData !== 'undefined' ? logoData : [],
+        typeof festiveData !== 'undefined' ? festiveData : [],
+        typeof thumbnailData !== 'undefined' ? thumbnailData : [],
+        typeof storiesData !== 'undefined' ? storiesData : [],
+        typeof productDesignData !== 'undefined' ? productDesignData : []
+    ];
+    for (const dataset of datasets) {
+        const found = dataset.find(p => p.slug === slug);
+        if (found) return found;
+    }
+    return null;
+}
+
+function getCategorySlugForProject(project) {
+    if (typeof projectsData !== 'undefined' && projectsData.includes(project)) return 'instagram-carousels';
+    if (typeof logoData !== 'undefined' && logoData.includes(project)) return 'logo-designs';
+    if (typeof festiveData !== 'undefined' && festiveData.includes(project)) return 'festive-posts';
+    if (typeof thumbnailData !== 'undefined' && thumbnailData.includes(project)) return 'instagram-thumbnails';
+    if (typeof storiesData !== 'undefined' && storiesData.includes(project)) return 'instagram-stories';
+    if (typeof productDesignData !== 'undefined' && productDesignData.includes(project)) return 'product-design';
+    return null;
+}
+
+function navigateToSection(sectionId, smooth = true) {
+    const target = document.getElementById(sectionId);
+    if (target) {
+        target.scrollIntoView({
+            behavior: smooth ? 'smooth' : 'auto'
+        });
+    }
+}
+
+function showCategoryUI(categorySlug, scroll = true) {
+    const categoriesView = document.getElementById('categories-view');
+    const projectsDisplayView = document.getElementById('projects-display-view');
+    const activeCategoryTitle = document.getElementById('active-category-title');
+    const grids = document.querySelectorAll('#projects-display-view .projects-grid');
+
+    const targetGridId = categorySlugToGridId[categorySlug];
+    if (!targetGridId) return false;
+
+    const categoryCard = document.querySelector(`.category-card[data-target="${targetGridId}"]`);
+    const categoryTitle = categoryCard ? categoryCard.querySelector('.category-title').textContent : 'Portfolio';
+
+    categoriesView.style.display = 'none';
+    projectsDisplayView.style.display = 'block';
+    activeCategoryTitle.textContent = categoryTitle;
+
+    grids.forEach(grid => {
+        grid.style.display = 'none';
+    });
+
+    const targetGrid = document.getElementById(targetGridId);
+    if (targetGrid) {
+        targetGrid.style.display = 'grid';
+
+        const cards = targetGrid.querySelectorAll('.project-card');
+        cards.forEach((item, idx) => {
+            if (!item.classList.contains('visible')) {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, idx * 50);
+            }
+        });
+    }
+
+    if (scroll) {
+        navigateToSection('portfolio', true);
+    }
+    return true;
+}
+
+function handleRouting(isInitialLoad = false) {
+    const hash = window.location.hash;
+    
+    // Detect active page markers
+    const hasProjectsMark = document.getElementById('categories-view') !== null;
+    const hasExperienceMark = document.getElementById('experience-page') !== null;
+    
+    const isProjectsPage = hasProjectsMark;
+    const isExperiencePage = hasExperienceMark;
+    const isIndexPage = !isProjectsPage && !isExperiencePage;
+    
+    if (isIndexPage) {
+        // --- 1. HOME PAGE ROUTING ---
+        if (!hash) {
+            window.location.hash = 'home';
+            return;
+        }
+        
+        // Redirections from Home Page
+        if (hash.startsWith('#project/') || hash.startsWith('#category/') || hash === '#portfolio') {
+            window.location.href = 'projects.html' + hash;
+            return;
+        }
+        if (hash === '#experience') {
+            window.location.href = 'experience.html#experience';
+            return;
+        }
+        
+        // Scroll local sections
+        const sectionId = hash.substring(1);
+        const knownSections = ['home', 'experience', 'projects', 'contact'];
+        if (knownSections.includes(sectionId)) {
+            navigateToSection(sectionId, !isInitialLoad);
+        }
+        return;
+    }
+    
+    if (isExperiencePage) {
+        // --- 2. EXPERIENCE PAGE ROUTING ---
+        if (!hash) {
+            window.location.hash = 'experience';
+            return;
+        }
+        
+        // Redirections from Experience Page
+        if (hash.startsWith('#project/') || hash.startsWith('#category/') || hash === '#portfolio') {
+            window.location.href = 'projects.html' + hash;
+            return;
+        }
+        if (hash === '#home' || hash === '#contact') {
+            window.location.href = 'index.html' + hash;
+            return;
+        }
+        
+        // Scroll local sections on experience page
+        const sectionId = hash.substring(1);
+        const knownSections = ['experience', 'education'];
+        if (knownSections.includes(sectionId)) {
+            navigateToSection(sectionId, !isInitialLoad);
+        }
+        return;
+    }
+    
+    if (isProjectsPage) {
+        // --- 3. PROJECTS PAGE ROUTING ---
+        // Force default slug hash if empty or legacy '#projects'
+        if (!hash || hash === '#projects') {
+            window.location.hash = 'portfolio';
+            return;
+        }
+
+        // Redirections from Projects Page
+        if (hash === '#home' || hash === '#contact') {
+            window.location.href = 'index.html' + hash;
+            return;
+        }
+        if (hash === '#experience') {
+            window.location.href = 'experience.html#experience';
+            return;
+        }
+
+        if (hash.startsWith('#project/')) {
+            const projectSlug = hash.replace('#project/', '');
+            const project = findProjectBySlug(projectSlug);
+
+            if (project) {
+                const categorySlug = getCategorySlugForProject(project);
+                currentCategorySlug = categorySlug;
+
+                if (categorySlug) {
+                    showCategoryUI(categorySlug, false);
+                }
+
+                openModal(project);
+            } else {
+                window.location.hash = '#portfolio';
+            }
+        } else if (hash.startsWith('#category/')) {
+            closeModal();
+            const categorySlug = hash.replace('#category/', '');
+            currentCategorySlug = categorySlug;
+            const success = showCategoryUI(categorySlug, !isInitialLoad);
+            if (!success) {
+                window.location.hash = '#portfolio';
+            }
+        } else {
+            closeModal();
+            currentCategorySlug = null;
+
+            const categoriesView = document.getElementById('categories-view');
+            const projectsDisplayView = document.getElementById('projects-display-view');
+            if (categoriesView && projectsDisplayView) {
+                projectsDisplayView.style.display = 'none';
+                categoriesView.style.display = 'grid';
+            }
+        }
+        return;
+    }
+}
+
+function goBackFromProject() {
+    window.location.hash = currentCategorySlug ? `#category/${currentCategorySlug}` : '#portfolio';
+}
+
 // --- Instagram Carousel Implementation ---
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -88,6 +304,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Setup Category Navigation Dashboard
             setupCategoryNavigation();
+
+            // Initialize Routing
+            handleRouting(true);
+
+            // Register hashchange listener
+            window.addEventListener('hashchange', () => {
+                handleRouting(false);
+            });
         } else {
             console.error("projectsData is undefined. Check projects_data.js loading.");
             projectsGrid.innerHTML = '<p style="color: red;">Error loading projects data.</p>';
@@ -99,67 +323,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setupCategoryNavigation() {
     const categoryCards = document.querySelectorAll('.category-card');
-    const categoriesView = document.getElementById('categories-view');
-    const projectsDisplayView = document.getElementById('projects-display-view');
-    const activeCategoryTitle = document.getElementById('active-category-title');
     const backToCategoriesBtn = document.getElementById('back-to-categories-btn');
-    const grids = document.querySelectorAll('#projects-display-view .projects-grid');
 
     categoryCards.forEach(card => {
         card.addEventListener('click', () => {
             const targetGridId = card.getAttribute('data-target');
-            const categoryTitle = card.querySelector('.category-title').textContent;
-
-            // Hide categories dashboard
-            categoriesView.style.display = 'none';
-
-            // Show projects grid container
-            projectsDisplayView.style.display = 'block';
-
-            // Set category title header
-            activeCategoryTitle.textContent = categoryTitle;
-
-            // Hide all grids
-            grids.forEach(grid => {
-                grid.style.display = 'none';
-            });
-
-            // Show selected grid
-            const targetGrid = document.getElementById(targetGridId);
-            if (targetGrid) {
-                targetGrid.style.display = 'grid';
-
-                // Trigger animations for items inside the selected grid
-                const cards = targetGrid.querySelectorAll('.project-card');
-                cards.forEach((item, idx) => {
-                    item.classList.remove('visible');
-                    setTimeout(() => {
-                        item.classList.add('visible');
-                    }, idx * 50);
-                });
+            const slug = categorySlugs[targetGridId];
+            if (slug) {
+                window.location.hash = `#category/${slug}`;
             }
-
-            // Smooth scroll to header of the section
-            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
         });
     });
 
-    backToCategoriesBtn.addEventListener('click', () => {
-        // Hide projects grid
-        projectsDisplayView.style.display = 'none';
-
-        // Show categories dashboard
-        categoriesView.style.display = 'grid';
-
-        // Re-trigger dashboard entries
-        categoriesView.classList.remove('visible');
-        setTimeout(() => {
-            categoriesView.classList.add('visible');
-        }, 50);
-
-        // Smooth scroll to header of the section
-        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-    });
+    if (backToCategoriesBtn) {
+        backToCategoriesBtn.addEventListener('click', () => {
+            window.location.hash = '#portfolio';
+        });
+    }
 }
 
 function getDesignType(containerId) {
@@ -199,9 +379,9 @@ function renderProjects(projects, containerId = 'projects-grid') {
         card.style.animationDelay = `${index * 0.05}s`; // Staggered animation
         card.style.cursor = 'pointer'; // Indicate clickable
 
-        // On Click -> Open Modal with the full scrollable carousel
+        // On Click -> Open Modal via hash routing
         card.addEventListener('click', () => {
-            openModal(project);
+            window.location.hash = `#project/${project.slug}`;
         });
 
         // Show only the first image as a preview card
@@ -359,20 +539,30 @@ const modalBody = document.querySelector('.modal-body');
 
 if (closeModalBtn) {
     closeModalBtn.onclick = function () {
-        closeModal();
+        goBackFromProject();
     }
 }
 
 if (modal) {
     window.onclick = function (event) {
         if (event.target == modal) {
-            closeModal();
+            goBackFromProject();
         }
     }
 }
 
+// Escape key listener for closing modal
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('project-modal');
+        if (modal && modal.style.display === 'flex') {
+            goBackFromProject();
+        }
+    }
+});
+
 function closeModal() {
-    if (modal) {
+    if (modal && modal.classList.contains('show')) {
         modal.classList.remove('show');
         setTimeout(() => {
             modal.style.display = "none";

@@ -13,7 +13,8 @@ const projectsData = [
         "description": "A premium roller pen design for Pierre Cardin, featuring a sleek metallic finish and ergonomic grip.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 0
+        "sort_order": 0,
+        "slug": "pierre-cardin-pc-vell-fire"
     },
     {
         "brand": "Pierre Cardin",
@@ -29,7 +30,8 @@ const projectsData = [
         "description": "Royal elegance in a pen. A high-end concept focusing on gold accents and minimalist white aesthetics.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 1
+        "sort_order": 1,
+        "slug": "pierre-cardin-pc-royal-salute-white-the-gold-roller-pen"
     },
     {
         "brand": "Pierre Cardin",
@@ -46,7 +48,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 2
+        "sort_order": 2,
+        "slug": "pierre-cardin-pc-coffee-brew"
     },
     {
         "brand": "Pierre Cardin",
@@ -63,7 +66,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 3
+        "sort_order": 3,
+        "slug": "pierre-cardin-pc-heritage"
     },
     {
         "brand": "Pierre Cardin",
@@ -79,7 +83,8 @@ const projectsData = [
         "description": "Classic gold finish ball pen design, targeting the corporate gifting sector.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 4
+        "sort_order": 4,
+        "slug": "pierre-cardin-stain-gold-ball-pen"
     },
     {
         "brand": "Pierre Cardin",
@@ -95,7 +100,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 5
+        "sort_order": 5,
+        "slug": "pierre-cardin-pc-coffee-irish"
     },
     {
         "brand": "Flair",
@@ -112,7 +118,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 10
+        "sort_order": 10,
+        "slug": "flair-raw-pencil"
     },
     {
         "brand": "Flair",
@@ -128,7 +135,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 11
+        "sort_order": 11,
+        "slug": "flair-plug-gp"
     },
     {
         "brand": "Hauser",
@@ -147,7 +155,8 @@ const projectsData = [
         "description": "Creative and inspiring visual identity for the Art Venture line.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 12
+        "sort_order": 12,
+        "slug": "hauser-art-venture"
     },
     {
         "brand": "Hauser",
@@ -164,7 +173,8 @@ const projectsData = [
         "description": "Modern and bright aesthetic for Hauser Luma pens.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 13
+        "sort_order": 13,
+        "slug": "hauser-luma"
     },
     {
         "brand": "Hauser",
@@ -180,7 +190,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 14
+        "sort_order": 14,
+        "slug": "hauser-hc-801"
     },
     {
         "brand": "Hauser",
@@ -196,7 +207,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 15
+        "sort_order": 15,
+        "slug": "hauser-numerix"
     },
     {
         "brand": "Hauser",
@@ -212,7 +224,43 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 0.75,
-        "sort_order": 16
+        "sort_order": 16,
+        "slug": "hauser-p2p-pencil"
+    },
+    {
+        "brand": "Hauser",
+        "title": "Hauser Icy Super Dark Pencil",
+        "folder": "Carousel/Hauser/Hauser Icy Super Dark Pencil",
+        "images": [
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg",
+            "6.jpg"
+        ],
+        "description": "Designed during my internship at Student Yard.",
+        "instagram_link": "",
+        "aspect_ratio": 0.75,
+        "sort_order": 17,
+        "slug": "hauser-icy-super-dark-pencil"
+    },
+    {
+        "brand": "Hauser",
+        "title": "Froyo Pencil",
+        "folder": "Carousel/Hauser/Froyo Pencil",
+        "images": [
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg"
+        ],
+        "description": "Designed during my internship at Student Yard.",
+        "instagram_link": "",
+        "aspect_ratio": 0.75,
+        "sort_order": 18,
+        "slug": "hauser-froyo-pencil"
     },
     {
         "brand": "Doms",
@@ -229,7 +277,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 6
+        "sort_order": 6,
+        "slug": "doms-art-vault-kit"
     },
     {
         "brand": "Doms",
@@ -246,7 +295,8 @@ const projectsData = [
         "description": "Comprehensive stationery kit packaging, designed for visibility and compactness.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 7
+        "sort_order": 7,
+        "slug": "doms-smart-kit"
     },
     {
         "brand": "Doms",
@@ -262,7 +312,8 @@ const projectsData = [
         "description": "Artistic kit box design, inspiring young creators with bold graphics.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 8
+        "sort_order": 8,
+        "slug": "doms-creatist-kit"
     },
     {
         "brand": "Maped",
@@ -278,7 +329,8 @@ const projectsData = [
         "description": "Underwater themed illustrations for the Color'Peps Ocean series.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 9
+        "sort_order": 9,
+        "slug": "maped-color-peps-ocean-2"
     },
     {
         "brand": "Montex",
@@ -295,7 +347,8 @@ const projectsData = [
         "description": "Designed during my internship at Student Yard.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 17
+        "sort_order": 19,
+        "slug": "montex-ploom-chhota-bheem"
     }
 ];
 const festiveData = [
@@ -306,10 +359,11 @@ const festiveData = [
         "images": [
             "BigInIT insta gudi post.jpg"
         ],
-        "description": "Festive Celebration Post",
+        "description": "Vibrant social media creative celebrating the spirit of Gudi Padwa.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "festive-biginit-insta-gudi-post"
     },
     {
         "brand": "Festive",
@@ -318,10 +372,11 @@ const festiveData = [
         "images": [
             "BigInIT insta holika dahan post.jpg"
         ],
-        "description": "Festive Celebration Post",
+        "description": "Festive Holika Dahan post designed for BigInIT's social media.",
         "instagram_link": "",
         "aspect_ratio": 0.8,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "festive-biginit-insta-holika-dahan-post"
     },
     {
         "brand": "Festive",
@@ -333,7 +388,8 @@ const festiveData = [
         "description": "Festive Celebration Post",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "festive-biginit"
     }
 ];
 const logoData = [
@@ -342,36 +398,52 @@ const logoData = [
         "title": "Cafe Biblio",
         "folder": "Logo",
         "images": [
-            "Cafe Biblio.jpg"
+            "Cafe_Biblio.jpg"
         ],
-        "description": "Logo Design",
+        "description": "A charming cafe logo concept blending library theme and cozy literary vibes with visual design.",
         "instagram_link": "",
-        "aspect_ratio": 2.9046898638426626,
-        "sort_order": 999
+        "aspect_ratio": 1.0,
+        "sort_order": 999,
+        "slug": "logo-designs-cafe-biblio"
     },
     {
         "brand": "Logo Designs",
-        "title": "Design Dharma logo",
+        "title": "Design Dharma",
         "folder": "Logo",
         "images": [
-            "Design Dharma logo.jpg"
+            "Design_Dharma.jpg"
         ],
-        "description": "Logo Design",
+        "description": "Designed brand logo and visual identity assets, capturing the brand's unique modern essence and style.",
         "instagram_link": "",
-        "aspect_ratio": 3.4211502782931356,
-        "sort_order": 999
+        "aspect_ratio": 1.0,
+        "sort_order": 999,
+        "slug": "logo-designs-design-dharma"
     },
     {
         "brand": "Logo Designs",
-        "title": "Sthir final ",
+        "title": "Lumora Candles",
         "folder": "Logo",
         "images": [
-            "Sthir final .jpg"
+            "Lumora_Candles.jpg"
         ],
-        "description": "Logo Design",
+        "description": "Logo design capturing the calm, warm, and handcrafted essence of eco-friendly candles.",
         "instagram_link": "",
-        "aspect_ratio": 0.9098958333333333,
-        "sort_order": 999
+        "aspect_ratio": 1.0,
+        "sort_order": 999,
+        "slug": "logo-designs-lumora-candles"
+    },
+    {
+        "brand": "Logo Designs",
+        "title": "Sthir",
+        "folder": "Logo",
+        "images": [
+            "Sthir.jpg"
+        ],
+        "description": "Logo and brand symbol designed for Sthir, capturing stillness, stability, and premium clean aesthetics.",
+        "instagram_link": "",
+        "aspect_ratio": 1.0,
+        "sort_order": 999,
+        "slug": "logo-designs-sthir"
     }
 ];
 const thumbnailData = [
@@ -385,7 +457,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-1"
     },
     {
         "brand": "Kidgets",
@@ -397,7 +470,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-3"
     },
     {
         "brand": "Kidgets",
@@ -409,7 +483,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-9"
     },
     {
         "brand": "Kidgets",
@@ -421,7 +496,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-10"
     },
     {
         "brand": "Kidgets",
@@ -433,7 +509,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-17"
     },
     {
         "brand": "Kidgets",
@@ -445,7 +522,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-19"
     },
     {
         "brand": "Kidgets",
@@ -457,7 +535,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-20"
     },
     {
         "brand": "Kidgets",
@@ -469,7 +548,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-21"
     },
     {
         "brand": "Kidgets",
@@ -481,7 +561,8 @@ const thumbnailData = [
         "description": "Vibrant and engaging Instagram thumbnail design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-thumbnail-25"
     },
     {
         "brand": "Shape",
@@ -493,7 +574,8 @@ const thumbnailData = [
         "description": "Minimalist and bold Instagram thumbnail design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-thumbnail-1"
     },
     {
         "brand": "Shape",
@@ -505,7 +587,8 @@ const thumbnailData = [
         "description": "Minimalist and bold Instagram thumbnail design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-thumbnail-3"
     },
     {
         "brand": "Shape",
@@ -517,7 +600,8 @@ const thumbnailData = [
         "description": "Minimalist and bold Instagram thumbnail design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-thumbnail-4"
     },
     {
         "brand": "Shape",
@@ -529,7 +613,8 @@ const thumbnailData = [
         "description": "Minimalist and bold Instagram thumbnail design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-thumbnail-6"
     },
     {
         "brand": "Shape",
@@ -541,7 +626,8 @@ const thumbnailData = [
         "description": "Minimalist and bold Instagram thumbnail design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-thumbnail-12"
     },
     {
         "brand": "Shape",
@@ -553,7 +639,8 @@ const thumbnailData = [
         "description": "Minimalist and bold Instagram thumbnail design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-thumbnail-14"
     },
     {
         "brand": "Shape",
@@ -565,7 +652,8 @@ const thumbnailData = [
         "description": "Minimalist and bold Instagram thumbnail design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-thumbnail-17"
     }
 ];
 const storiesData = [
@@ -579,7 +667,8 @@ const storiesData = [
         "description": "Instagram Story design created for Stories.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "stories-1"
     },
     {
         "brand": "Stories",
@@ -591,7 +680,8 @@ const storiesData = [
         "description": "Instagram Story design created for Stories.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "stories-4"
     },
     {
         "brand": "Kidgets",
@@ -603,7 +693,8 @@ const storiesData = [
         "description": "Brother's Day special Instagram story designed for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-brother-s-day-story"
     },
     {
         "brand": "Kidgets",
@@ -615,7 +706,8 @@ const storiesData = [
         "description": "Instagram Story design created for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-happy-national-best-friend-day"
     },
     {
         "brand": "Kidgets",
@@ -627,7 +719,8 @@ const storiesData = [
         "description": "International Day of Yoga Instagram story designed for Kidgets.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "kidgets-international-day-of-yoga-21st-june"
     },
     {
         "brand": "Shape",
@@ -639,7 +732,8 @@ const storiesData = [
         "description": "Instagram Story design created for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-happy-national-best-friend-day"
     },
     {
         "brand": "Shape",
@@ -651,7 +745,8 @@ const storiesData = [
         "description": "Brand presentation and promotional Instagram story designed for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-page-story"
     },
     {
         "brand": "Shape",
@@ -663,7 +758,8 @@ const storiesData = [
         "description": "World Environment Day Instagram story designed for Shape.",
         "instagram_link": "",
         "aspect_ratio": 0.5625,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "shape-world-environment-day-5th-june"
     }
 ];
 const productDesignData = [
@@ -678,7 +774,8 @@ const productDesignData = [
         "description": "Elegant thank you insert card designed for luxury jewelry brand Qimati.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "product-design-qimati-thank-you-card"
     },
     {
         "brand": "Product Design",
@@ -690,7 +787,8 @@ const productDesignData = [
         "description": "Custom product carry bag packaging designed for Tulsava.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "product-design-tulsava-bag"
     },
     {
         "brand": "Product Design",
@@ -703,6 +801,7 @@ const productDesignData = [
         "description": "Charming thank you insert card designed for Tulsava.",
         "instagram_link": "",
         "aspect_ratio": 1.0,
-        "sort_order": 999
+        "sort_order": 999,
+        "slug": "product-design-tulsava-thank-you-card"
     }
 ];

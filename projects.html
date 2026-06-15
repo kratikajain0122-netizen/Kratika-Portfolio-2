@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Projects | Kratika Jain | Graphic Designer & Visual Artist</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Kratika Jain</a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="projects.html" class="active">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Creative Projects Section -->
+        <section id="portfolio" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Creative Projects</h2>
+                <p class="section-description animate-on-scroll" style="margin-bottom: 50px;">
+                    A collection of designs focusing on visual storytelling, branding, and packaging. Select a category below to explore my work.
+                </p>
+                
+                <!-- Category Cards Selection View -->
+                <div class="categories-grid animate-on-scroll" id="categories-view">
+                    <!-- Card 1 -->
+                    <div class="category-card" data-target="projects-grid">
+                        <div class="category-icon"><i class="fas fa-images"></i></div>
+                        <h3 class="category-title">Instagram Carousels</h3>
+                        <p class="category-description">Scrollable multi-page brand guides and product layouts.</p>
+                        <span class="category-count">20 Projects</span>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="category-card" data-target="logos-grid">
+                        <div class="category-icon"><i class="fas fa-pen-nib"></i></div>
+                        <h3 class="category-title">Logo Designs</h3>
+                        <p class="category-description">Unique brand logos, vector symbols, and visual identities.</p>
+                        <span class="category-count">4 Projects</span>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="category-card" data-target="festive-grid">
+                        <div class="category-icon"><i class="fas fa-calendar-day"></i></div>
+                        <h3 class="category-title">Festive Posts</h3>
+                        <p class="category-description">Engaging social media creatives for holiday campaigns.</p>
+                        <span class="category-count">3 Projects</span>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="category-card" data-target="thumbnails-grid">
+                        <div class="category-icon"><i class="fas fa-play"></i></div>
+                        <h3 class="category-title">Instagram Thumbnails</h3>
+                        <p class="category-description">High-conversion, click-worthy custom thumbnail templates.</p>
+                        <span class="category-count">16 Projects</span>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="category-card" data-target="stories-grid">
+                        <div class="category-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3 class="category-title">Instagram Stories</h3>
+                        <p class="category-description">Eye-catching vertical creatives optimized for stories and shorts.</p>
+                        <span class="category-count">8 Projects</span>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="category-card" data-target="product-design-grid">
+                        <div class="category-icon"><i class="fas fa-box-open"></i></div>
+                        <h3 class="category-title">Product Design</h3>
+                        <p class="category-description">Elegant thank you cards, carry bags, and product packaging layout designs.</p>
+                        <span class="category-count">3 Projects</span>
+                    </div>
+                </div>
+
+                <!-- Projects Display View (Initially Hidden) -->
+                <div class="portfolio-display-view" id="projects-display-view" style="display: none;">
+                    <div class="display-header">
+                        <button class="back-btn" id="back-to-categories-btn">
+                            <i class="fas fa-arrow-left"></i> Back to Categories
+                        </button>
+                        <h3 class="active-category-title" id="active-category-title">Category Title</h3>
+                    </div>
+                    
+                    <div class="projects-grid" id="projects-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="logos-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="festive-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="thumbnails-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="stories-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="product-design-grid" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Kratika Jain. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kratika-jain-1713a62a5" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.behance.net/kratkajain01" target="_blank"><i class="fab fa-behance"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Dynamic Content Loading Here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="projects_data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

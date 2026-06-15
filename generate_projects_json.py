@@ -1,7 +1,30 @@
 #Thumbnail, stories, product design updated on 13th june 
 import os
 import json
+import re
 from PIL import Image
+
+def generate_slug(brand, title, filename=None):
+    # Combine components to generate a descriptive slug
+    parts = [brand, title]
+    if filename:
+        name_without_ext = os.path.splitext(filename)[0]
+        # Only add filename component if it's not already in brand or title
+        if name_without_ext.lower() not in title.lower() and name_without_ext.lower() not in brand.lower():
+            parts.append(name_without_ext)
+    
+    text = " ".join(parts)
+    # Convert to lowercase and split by non-alphanumeric characters
+    raw_words = re.split(r'[^a-zA-Z0-9]+', text.lower())
+    
+    # Remove duplicates while preserving order
+    words = []
+    for word in raw_words:
+        if word and word not in words:
+            words.append(word)
+    
+    return "-".join(words)
+
 
 base_dir = "Carousel"
 output_file = "projects_data.js"
@@ -44,7 +67,13 @@ custom_descriptions = {
     "Montex Glow": "Neon-inspired visuals for the Montex Glow range.",
     "Mega Meter Montex": "Highlighting longevity and ink capacity in the Mega Meter packaging.",
     "BigInIT insta gudi post": "Vibrant social media creative celebrating the spirit of Gudi Padwa.",
-    "BigInIT insta holika dahan post": "Festive Holika Dahan post designed for BigInIT's social media."
+    "BigInIT insta holika dahan post": "Festive Holika Dahan post designed for BigInIT's social media.",
+    "Design Dharma": "Designed brand logo and visual identity assets, capturing the brand's unique modern essence and style.",
+    "Lumora Candles": "Logo design capturing the calm, warm, and handcrafted essence of eco-friendly candles.",
+    "Sthir": "Logo and brand symbol designed for Sthir, capturing stillness, stability, and premium clean aesthetics.",
+    "Cafe Biblio": "A charming cafe logo concept blending library theme and cozy literary vibes with visual design.",
+    "Hauser Icy Super Dark Pencil": "Designed during my internship at Student Yard.",
+    "Froyo Pencil": "Designed during my internship at Student Yard."
 }
 
 # Curated list of Top 10 Projects to display in Carousel
@@ -67,6 +96,8 @@ CURATED_TOP_10 = [
     "Hauser HC-801",
     "Hauser Numerix",
     "Hauser P2P Pencil",
+    "Hauser Icy Super Dark Pencil",
+    "Froyo Pencil",
     "Montex Ploom Chhota Bheem"
 ]
 
@@ -98,7 +129,7 @@ def scan_directory(directory_name, filter_top_10=False):
                  print(f"Error reading image {img_file}: {e}")
              
              brand_name = "Logo Designs" if directory_name == "Logo" else "Festive"
-             desc_text = "Logo Design" if directory_name == "Logo" else "Festive Celebration Post"
+             desc_text = custom_descriptions.get(title_clean, "Logo Design" if directory_name == "Logo" else "Festive Celebration Post")
 
              data.append({
                 "brand": brand_name,
@@ -108,7 +139,8 @@ def scan_directory(directory_name, filter_top_10=False):
                 "description": desc_text,
                 "instagram_link": "",
                 "aspect_ratio": aspect_ratio,
-                "sort_order": 999
+                "sort_order": 999,
+                "slug": generate_slug(brand_name, title_clean, img_file)
              })
         return data
 
@@ -170,7 +202,8 @@ def scan_directory(directory_name, filter_top_10=False):
                     "description": desc,
                     "instagram_link": "",
                     "aspect_ratio": aspect_ratio,
-                    "sort_order": sort_order
+                    "sort_order": sort_order,
+                    "slug": generate_slug(brand.replace('_', ' '), title_clean)
                 })
     
     # Sort projects.
@@ -219,7 +252,8 @@ def scan_thumbnails(directory_name):
                 "description": description,
                 "instagram_link": "",
                 "aspect_ratio": aspect_ratio,
-                "sort_order": 999
+                "sort_order": 999,
+                "slug": generate_slug(folder, title_clean, img_file)
             })
     return data
 
@@ -268,7 +302,8 @@ def scan_stories(directory_name):
             "description": description,
             "instagram_link": "",
             "aspect_ratio": aspect_ratio,
-            "sort_order": 999
+            "sort_order": 999,
+            "slug": generate_slug(brand, title_clean, img_file)
         })
     return data
 
@@ -311,7 +346,8 @@ def scan_product_design(directory_name):
                     "description": description,
                     "instagram_link": "",
                     "aspect_ratio": aspect_ratio,
-                    "sort_order": 999
+                    "sort_order": 999,
+                    "slug": generate_slug("Product Design", title_clean)
                 })
         else:
             # It's a flat image file (Tulsava bag Design.png)
@@ -338,7 +374,8 @@ def scan_product_design(directory_name):
                     "description": description,
                     "instagram_link": "",
                     "aspect_ratio": aspect_ratio,
-                    "sort_order": 999
+                    "sort_order": 999,
+                    "slug": generate_slug("Product Design", title_clean, item)
                 })
                 
     # Sort by title
@@ -362,6 +399,34 @@ stories_projects = scan_stories("Stories")
 
 # Scan Product Design without filtering
 product_design_projects = scan_product_design("Product Design")
+
+# Verify uniqueness of slugs
+all_slugs = []
+for dataset_name, dataset in [
+    ("Carousel", projects),
+    ("Festive", festive_projects),
+    ("Logo", logo_projects),
+    ("Thumbnail", thumbnail_projects),
+    ("Stories", stories_projects),
+    ("Product Design", product_design_projects)
+]:
+    for p in dataset:
+        all_slugs.append(p['slug'])
+
+# Check for duplicates
+duplicates = set([s for s in all_slugs if all_slugs.count(s) > 1])
+if duplicates:
+    print(f"Warning: Duplicate slugs found: {duplicates}")
+    # Resolve duplicates by adding suffix
+    seen = {}
+    for dataset in [projects, festive_projects, logo_projects, thumbnail_projects, stories_projects, product_design_projects]:
+        for p in dataset:
+            slug = p['slug']
+            if slug in duplicates:
+                seen[slug] = seen.get(slug, 0) + 1
+                if seen[slug] > 1:
+                    p['slug'] = f"{slug}-{seen[slug]}"
+                    print(f"Resolved duplicate slug to: {p['slug']}")
 
 js_content = f"const projectsData = {json.dumps(projects, indent=4)};\nconst festiveData = {json.dumps(festive_projects, indent=4)};\nconst logoData = {json.dumps(logo_projects, indent=4)};\nconst thumbnailData = {json.dumps(thumbnail_projects, indent=4)};\nconst storiesData = {json.dumps(stories_projects, indent=4)};\nconst productDesignData = {json.dumps(product_design_projects, indent=4)};"
 

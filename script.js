@@ -70,6 +70,24 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof festiveData !== 'undefined') {
                 renderProjects(festiveData, 'festive-grid');
             }
+
+            // Render Thumbnails (if data exists)
+            if (typeof thumbnailData !== 'undefined') {
+                renderProjects(thumbnailData, 'thumbnails-grid');
+            }
+
+            // Render Instagram Stories (if data exists)
+            if (typeof storiesData !== 'undefined') {
+                renderProjects(storiesData, 'stories-grid');
+            }
+
+            // Render Product Designs (if data exists)
+            if (typeof productDesignData !== 'undefined') {
+                renderProjects(productDesignData, 'product-design-grid');
+            }
+
+            // Setup Category Navigation Dashboard
+            setupCategoryNavigation();
         } else {
             console.error("projectsData is undefined. Check projects_data.js loading.");
             projectsGrid.innerHTML = '<p style="color: red;">Error loading projects data.</p>';
@@ -79,6 +97,90 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function setupCategoryNavigation() {
+    const categoryCards = document.querySelectorAll('.category-card');
+    const categoriesView = document.getElementById('categories-view');
+    const projectsDisplayView = document.getElementById('projects-display-view');
+    const activeCategoryTitle = document.getElementById('active-category-title');
+    const backToCategoriesBtn = document.getElementById('back-to-categories-btn');
+    const grids = document.querySelectorAll('#projects-display-view .projects-grid');
+
+    categoryCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const targetGridId = card.getAttribute('data-target');
+            const categoryTitle = card.querySelector('.category-title').textContent;
+
+            // Hide categories dashboard
+            categoriesView.style.display = 'none';
+
+            // Show projects grid container
+            projectsDisplayView.style.display = 'block';
+
+            // Set category title header
+            activeCategoryTitle.textContent = categoryTitle;
+
+            // Hide all grids
+            grids.forEach(grid => {
+                grid.style.display = 'none';
+            });
+
+            // Show selected grid
+            const targetGrid = document.getElementById(targetGridId);
+            if (targetGrid) {
+                targetGrid.style.display = 'grid';
+
+                // Trigger animations for items inside the selected grid
+                const cards = targetGrid.querySelectorAll('.project-card');
+                cards.forEach((item, idx) => {
+                    item.classList.remove('visible');
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, idx * 50);
+                });
+            }
+
+            // Smooth scroll to header of the section
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    backToCategoriesBtn.addEventListener('click', () => {
+        // Hide projects grid
+        projectsDisplayView.style.display = 'none';
+
+        // Show categories dashboard
+        categoriesView.style.display = 'grid';
+
+        // Re-trigger dashboard entries
+        categoriesView.classList.remove('visible');
+        setTimeout(() => {
+            categoriesView.classList.add('visible');
+        }, 50);
+
+        // Smooth scroll to header of the section
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+function getDesignType(containerId) {
+    switch (containerId) {
+        case 'projects-grid':
+            return 'Instagram Carousel';
+        case 'logos-grid':
+            return 'Logo Design';
+        case 'festive-grid':
+            return 'Festive Post';
+        case 'thumbnails-grid':
+            return 'Instagram Thumbnail';
+        case 'stories-grid':
+            return 'Instagram Story';
+        case 'product-design-grid':
+            return 'Product Design';
+        default:
+            return 'Design';
+    }
+}
+
 function renderProjects(projects, containerId = 'projects-grid') {
     const projectsGrid = document.getElementById(containerId);
     if (!projectsGrid) {
@@ -86,45 +188,25 @@ function renderProjects(projects, containerId = 'projects-grid') {
         return;
     }
 
-    // Clear existing content (optional, but good for re-renders)
+    // Clear existing content
     projectsGrid.innerHTML = '';
+
+    const designType = getDesignType(containerId);
 
     projects.forEach((project, index) => {
         const card = document.createElement('div');
         card.className = 'project-card animate-on-scroll';
-        card.style.animationDelay = `${index * 0.1}s`; // Staggered animation
+        card.style.animationDelay = `${index * 0.05}s`; // Staggered animation
         card.style.cursor = 'pointer'; // Indicate clickable
 
-        // On Click -> Open Modal
-        card.addEventListener('click', (e) => {
-            // Check if click was on carousel button/dot, if so don't open modal (optional, but good UX)
-            if (e.target.closest('.carousel-btn') || e.target.closest('.dot') || e.target.closest('.instagram-btn')) {
-                return;
-            }
+        // On Click -> Open Modal with the full scrollable carousel
+        card.addEventListener('click', () => {
             openModal(project);
         });
 
-        // Generate slides HTML
-        const slidesHtml = project.images.map((img, i) => {
-            const imagePath = `${project.folder}/${img}`;
-            return `
-            <div class="carousel-slide">
-                <img src="${imagePath}" alt="${project.title} - Slide ${i + 1}">
-            </div>
-        `}).join('');
-
-        // Generate dots HTML
-        const dotsHtml = project.images.length > 1 ? `
-            <div class="carousel-dots">
-                ${project.images.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')}
-            </div>
-        ` : '';
-
-        // Generate buttons HTML
-        const buttonsHtml = project.images.length > 1 ? `
-            <button class="carousel-btn prev" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
-            <button class="carousel-btn next" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
-        ` : '';
+        // Show only the first image as a preview card
+        const imagePath = `${project.folder}/${project.images[0]}`;
+        const aspectRatio = project.aspect_ratio || (4 / 5);
 
         const instagramBtnHtml = project.instagram_link ? `
             <a href="${project.instagram_link}" target="_blank" class="instagram-btn">
@@ -132,18 +214,12 @@ function renderProjects(projects, containerId = 'projects-grid') {
             </a>
         ` : '';
 
-        // Default to 4/5 if not present
-        const aspectRatio = project.aspect_ratio || (4 / 5);
-
         card.innerHTML = `
-            <div class="carousel-container" id="carousel-${index}" style="aspect-ratio: ${aspectRatio};">
-                <div class="carousel-track">
-                    ${slidesHtml}
-                </div>
-                ${buttonsHtml}
-                ${dotsHtml}
+            <div class="project-image-wrapper" style="aspect-ratio: ${aspectRatio}; overflow: hidden; position: relative;">
+                <img src="${imagePath}" alt="${project.title}" loading="lazy">
             </div>
             <div class="project-info">
+                <div class="project-type-subtext">${designType}</div>
                 <div class="project-brand">${project.brand}</div>
                 <div class="project-title">${project.title}</div>
                 <p class="project-description">${project.description}</p>
@@ -156,12 +232,7 @@ function renderProjects(projects, containerId = 'projects-grid') {
         // Trigger animation
         setTimeout(() => {
             card.classList.add('visible');
-        }, 100 * index);
-
-        // Initialize carousel functionality for this card
-        if (project.images.length > 1) {
-            initCarousel(card.querySelector('.carousel-container'), project.images.length, true);
-        }
+        }, 50 * index);
     });
 }
 

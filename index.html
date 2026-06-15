@@ -27,7 +27,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -151,38 +151,75 @@
 
 
 
-        <!-- Projects Section (Instagram Carousels) -->
+        <!-- Creative Projects Section -->
         <section id="projects" class="section-padding">
             <div class="container">
                 <h2 class="section-title animate-on-scroll">Creative Projects</h2>
-                <p class="section-description">
-                    A curated collection of packaging and brand identity projects designed during my internship at
-                    Student Yard.
-                    These designs focus on <strong>visual storytelling</strong>, <strong>premium aesthetics</strong>,
-                    and <strong>functional creativity</strong> for leading stationery brands.
+                <p class="section-description animate-on-scroll" style="margin-bottom: 50px;">
+                    A collection of designs focusing on visual storytelling, branding, and packaging. Select a category below to explore my work.
                 </p>
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Projects will be dynamically loaded here by script.js -->
+                
+                <!-- Category Cards Selection View -->
+                <div class="categories-grid animate-on-scroll" id="categories-view">
+                    <!-- Card 1 -->
+                    <div class="category-card" data-target="projects-grid">
+                        <div class="category-icon"><i class="fas fa-images"></i></div>
+                        <h3 class="category-title">Instagram Carousels</h3>
+                        <p class="category-description">Scrollable multi-page brand guides and product layouts.</p>
+                        <span class="category-count">18 Projects</span>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="category-card" data-target="logos-grid">
+                        <div class="category-icon"><i class="fas fa-pen-nib"></i></div>
+                        <h3 class="category-title">Logo Designs</h3>
+                        <p class="category-description">Unique brand logos, vector symbols, and visual identities.</p>
+                        <span class="category-count">3 Projects</span>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="category-card" data-target="festive-grid">
+                        <div class="category-icon"><i class="fas fa-calendar-day"></i></div>
+                        <h3 class="category-title">Festive Posts</h3>
+                        <p class="category-description">Engaging social media creatives for holiday campaigns.</p>
+                        <span class="category-count">3 Projects</span>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="category-card" data-target="thumbnails-grid">
+                        <div class="category-icon"><i class="fas fa-play"></i></div>
+                        <h3 class="category-title">Instagram Thumbnails</h3>
+                        <p class="category-description">High-conversion, click-worthy custom thumbnail templates.</p>
+                        <span class="category-count">16 Projects</span>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="category-card" data-target="stories-grid">
+                        <div class="category-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3 class="category-title">Instagram Stories</h3>
+                        <p class="category-description">Eye-catching vertical creatives optimized for stories and shorts.</p>
+                        <span class="category-count">8 Projects</span>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="category-card" data-target="product-design-grid">
+                        <div class="category-icon"><i class="fas fa-box-open"></i></div>
+                        <h3 class="category-title">Product Design</h3>
+                        <p class="category-description">Elegant thank you cards, carry bags, and product packaging layout designs.</p>
+                        <span class="category-count">3 Projects</span>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Logos Section -->
-        <section id="logos" class="section-padding">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Logo Designs</h2>
-                <div class="projects-grid" id="logos-grid">
-                    <!-- Logo projects will be dynamically loaded here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Festive Posts Section -->
-        <section id="festive-posts" class="section-padding">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Festive Posts</h2>
-                <div class="projects-grid" id="festive-grid">
-                    <!-- Festive projects will be dynamically loaded here -->
+                <!-- Projects Display View (Initially Hidden) -->
+                <div class="portfolio-display-view" id="projects-display-view" style="display: none;">
+                    <div class="display-header">
+                        <button class="back-btn" id="back-to-categories-btn">
+                            <i class="fas fa-arrow-left"></i> Back to Categories
+                        </button>
+                        <h3 class="active-category-title" id="active-category-title">Category Title</h3>
+                    </div>
+                    
+                    <div class="projects-grid" id="projects-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="logos-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="festive-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="thumbnails-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="stories-grid" style="display: none;"></div>
+                    <div class="projects-grid" id="product-design-grid" style="display: none;"></div>
                 </div>
             </div>
         </section>

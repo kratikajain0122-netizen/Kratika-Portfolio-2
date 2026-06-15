@@ -60,9 +60,12 @@ CURATED_TOP_10 = [
     "Doms Creatist Kit",
     "Maped Color'Peps Ocean 2",
     "Flair Raw Pencil",
+    "Flair Plug GP",
     "Hauser Art Venture",
-    "Hauser Xo Mate",
     "Hauser Luma",
+    "Hauser HC-801",
+    "Hauser Numerix",
+    "Hauser P2P Pencil",
     "Montex Ploom Chhota Bheem"
 ]
 
@@ -176,6 +179,171 @@ def scan_directory(directory_name, filter_top_10=False):
     data.sort(key=lambda x: (round(x.get('aspect_ratio', 0), 2), x['sort_order'], x['brand'], x['title']))
     return data
 
+def scan_thumbnails(directory_name):
+    data = []
+    if not os.path.exists(directory_name):
+        return data
+    
+    folders = [d for d in os.listdir(directory_name) if os.path.isdir(os.path.join(directory_name, d)) and not d.startswith('.')]
+    folders.sort()
+    
+    for folder in folders:
+        folder_path = os.path.join(directory_name, folder)
+        images = [f for f in os.listdir(folder_path) if f.lower().endswith(('.jpg', '.jpeg', '.png')) and not f.startswith('.')]
+        images.sort(key=lambda x: int(os.path.splitext(x)[0]) if os.path.splitext(x)[0].isdigit() else x)
+        
+        for img_file in images:
+            img_path = os.path.join(folder_path, img_file)
+            title_clean = f"{folder} Thumbnail"
+            
+            aspect_ratio = 16/9
+            try:
+                with Image.open(img_path) as img:
+                    w, h = img.size
+                    aspect_ratio = w / h
+            except Exception as e:
+                print(f"Error reading image {img_path}: {e}")
+            
+            description = f"Instagram Thumbnail design created for {folder}."
+            if folder == "Shape":
+                description = "Minimalist and bold Instagram thumbnail design created for Shape."
+            elif folder == "Kidgets":
+                description = "Vibrant and engaging Instagram thumbnail design created for Kidgets."
+
+            data.append({
+                "brand": folder,
+                "title": title_clean,
+                "folder": os.path.join(directory_name, folder),
+                "images": [img_file],
+                "description": description,
+                "instagram_link": "",
+                "aspect_ratio": aspect_ratio,
+                "sort_order": 999
+            })
+    return data
+
+def scan_stories(directory_name):
+    data = []
+    if not os.path.exists(directory_name):
+        return data
+    
+    files = [f for f in os.listdir(directory_name) if f.lower().endswith(('.jpg', '.jpeg', '.png')) and not f.startswith('.')]
+    files.sort()
+    
+    for img_file in files:
+        product_path = os.path.join(directory_name, img_file)
+        title_clean = os.path.splitext(img_file)[0]
+        
+        # Determine brand
+        brand = "Stories"
+        if "kidgets" in title_clean.lower():
+            brand = "Kidgets"
+        elif "shape" in title_clean.lower():
+            brand = "Shape"
+            
+        aspect_ratio = 9/16
+        try:
+            with Image.open(product_path) as img:
+                w, h = img.size
+                aspect_ratio = w / h
+        except Exception as e:
+            print(f"Error reading image {img_file}: {e}")
+            
+        description = f"Instagram Story design created for {brand}."
+        if "brother" in title_clean.lower():
+            description = "Brother's Day special Instagram story designed for Kidgets."
+        elif "yoga" in title_clean.lower():
+            description = "International Day of Yoga Instagram story designed for Kidgets."
+        elif "environment" in title_clean.lower():
+            description = "World Environment Day Instagram story designed for Shape."
+        elif "page story" in title_clean.lower():
+            description = "Brand presentation and promotional Instagram story designed for Shape."
+
+        data.append({
+            "brand": brand,
+            "title": title_clean,
+            "folder": directory_name,
+            "images": [img_file],
+            "description": description,
+            "instagram_link": "",
+            "aspect_ratio": aspect_ratio,
+            "sort_order": 999
+        })
+    return data
+
+def scan_product_design(directory_name):
+    data = []
+    if not os.path.exists(directory_name):
+        return data
+    
+    items = [i for i in os.listdir(directory_name) if not i.startswith('.')]
+    
+    for item in items:
+        item_path = os.path.join(directory_name, item)
+        if os.path.isdir(item_path):
+            # Group all images in the subdirectory into a single project carousel
+            images = [f for f in os.listdir(item_path) if f.lower().endswith(('.jpg', '.jpeg', '.png')) and not f.startswith('.')]
+            images.sort(key=lambda x: int(os.path.splitext(x)[0]) if os.path.splitext(x)[0].isdigit() else x)
+            
+            if images:
+                aspect_ratio = 1.0 # default
+                try:
+                    first_image_path = os.path.join(item_path, images[0])
+                    with Image.open(first_image_path) as img:
+                        w, h = img.size
+                        aspect_ratio = w / h
+                except Exception as e:
+                    print(f"Error reading image {first_image_path}: {e}")
+                
+                title_clean = item.replace('_', ' ')
+                description = f"Product packaging and thank you card design for {title_clean}."
+                if "qimati" in title_clean.lower():
+                    description = "Elegant thank you insert card designed for luxury jewelry brand Qimati."
+                elif "tulsava" in title_clean.lower():
+                    description = "Charming thank you insert card designed for Tulsava."
+
+                data.append({
+                    "brand": "Product Design",
+                    "title": title_clean,
+                    "folder": item_path,
+                    "images": images,
+                    "description": description,
+                    "instagram_link": "",
+                    "aspect_ratio": aspect_ratio,
+                    "sort_order": 999
+                })
+        else:
+            # It's a flat image file (Tulsava bag Design.png)
+            if item.lower().endswith(('.jpg', '.jpeg', '.png')):
+                title_clean = os.path.splitext(item)[0].replace('_', ' ')
+                
+                aspect_ratio = 1.0
+                try:
+                    with Image.open(item_path) as img:
+                        w, h = img.size
+                        aspect_ratio = w / h
+                except Exception as e:
+                    print(f"Error reading image {item_path}: {e}")
+                
+                description = f"Custom bag packaging design for Tulsava."
+                if "tulsava" in title_clean.lower():
+                    description = "Custom product carry bag packaging designed for Tulsava."
+
+                data.append({
+                    "brand": "Product Design",
+                    "title": title_clean,
+                    "folder": directory_name,
+                    "images": [item],
+                    "description": description,
+                    "instagram_link": "",
+                    "aspect_ratio": aspect_ratio,
+                    "sort_order": 999
+                })
+                
+    # Sort by title
+    data.sort(key=lambda x: x['title'])
+    return data
+
 # Scan Carousel with filtering
 projects = scan_directory("Carousel", filter_top_10=True)
 
@@ -185,9 +353,18 @@ festive_projects = scan_directory("Festive_Posts", filter_top_10=False)
 # Scan Logo without filtering
 logo_projects = scan_directory("Logo", filter_top_10=False)
 
-js_content = f"const projectsData = {json.dumps(projects, indent=4)};\nconst festiveData = {json.dumps(festive_projects, indent=4)};\nconst logoData = {json.dumps(logo_projects, indent=4)};"
+# Scan Thumbnail without filtering
+thumbnail_projects = scan_thumbnails("Thumbnail")
+
+# Scan Stories without filtering
+stories_projects = scan_stories("Stories")
+
+# Scan Product Design without filtering
+product_design_projects = scan_product_design("Product Design")
+
+js_content = f"const projectsData = {json.dumps(projects, indent=4)};\nconst festiveData = {json.dumps(festive_projects, indent=4)};\nconst logoData = {json.dumps(logo_projects, indent=4)};\nconst thumbnailData = {json.dumps(thumbnail_projects, indent=4)};\nconst storiesData = {json.dumps(stories_projects, indent=4)};\nconst productDesignData = {json.dumps(product_design_projects, indent=4)};"
 
 with open(output_file, "w") as f:
     f.write(js_content)
 
-print(f"Generated {output_file} with {len(projects)} curated projects, {len(festive_projects)} festive posts, and {len(logo_projects)} logos.")
+print(f"Generated {output_file} with {len(projects)} curated projects, {len(festive_projects)} festive posts, {len(logo_projects)} logos, {len(thumbnail_projects)} thumbnails, {len(stories_projects)} stories, and {len(product_design_projects)} product designs.")

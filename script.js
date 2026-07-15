@@ -165,14 +165,9 @@ function handleRouting(isInitialLoad = false) {
             window.location.href = 'projects.html' + hash;
             return;
         }
-        if (hash === '#experience') {
-            window.location.href = 'experience.html#experience';
-            return;
-        }
-        
         // Scroll local sections
         const sectionId = hash.substring(1);
-        const knownSections = ['home', 'experience', 'projects', 'contact'];
+        const knownSections = ['home', 'experience', 'education', 'projects', 'contact'];
         if (knownSections.includes(sectionId)) {
             navigateToSection(sectionId, !isInitialLoad);
         }
@@ -218,8 +213,8 @@ function handleRouting(isInitialLoad = false) {
             window.location.href = 'index.html' + hash;
             return;
         }
-        if (hash === '#experience') {
-            window.location.href = 'experience.html#experience';
+        if (hash === '#experience' || hash === '#education') {
+            window.location.href = 'index.html' + hash;
             return;
         }
 
@@ -317,7 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsGrid.innerHTML = '<p style="color: red;">Error loading projects data.</p>';
         }
     } else {
-        console.error("projects-grid element not found!");
+        console.log("projects-grid element not found (not on projects page). Initializing routing...");
+        // Initialize Routing for home/experience pages
+        handleRouting(true);
+
+        // Register hashchange listener
+        window.addEventListener('hashchange', () => {
+            handleRouting(false);
+        });
     }
 });
 

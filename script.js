@@ -630,7 +630,8 @@ function openModal(project) {
 
         // Initialize carousel inside modal
         if (project.images.length > 1) {
-            initCarousel(modalBody.querySelector('.carousel-container'), project.images.length, true);
+            const isInstagramCarousel = getCategorySlugForProject(project) === 'instagram-carousels';
+            initCarousel(modalBody.querySelector('.carousel-container'), project.images.length, isInstagramCarousel);
         }
     }
 

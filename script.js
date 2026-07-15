@@ -22,7 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1) || 'home';
-            window.location.hash = targetId;
+            if (window.location.hash === '#' + targetId) {
+                navigateToSection(targetId, true);
+            } else {
+                window.location.hash = targetId;
+            }
             // Close mobile menu if open
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
@@ -418,6 +422,8 @@ function renderProjects(projects, containerId = 'projects-grid') {
     });
 }
 
+let activeAutoPlayTimer = null;
+
 function initCarousel(container, slideCount, enableAutoPlay = false) {
     const track = container.querySelector('.carousel-track');
     const prevBtn = container.querySelector('.prev');
@@ -451,10 +457,12 @@ function initCarousel(container, slideCount, enableAutoPlay = false) {
         if (!enableAutoPlay) return;
         stopAutoPlay(); // Clear existing to be safe
         autoPlayTimer = setInterval(nextSlide, 3000); // 3 seconds
+        activeAutoPlayTimer = autoPlayTimer;
     }
 
     function stopAutoPlay() {
         if (autoPlayTimer) clearInterval(autoPlayTimer);
+        if (activeAutoPlayTimer === autoPlayTimer) activeAutoPlayTimer = null;
     }
 
     // Start auto-play initially (only if visible)
@@ -566,15 +574,25 @@ window.addEventListener('keydown', (e) => {
 function closeModal() {
     if (modal && modal.classList.contains('show')) {
         modal.classList.remove('show');
+        if (activeAutoPlayTimer) {
+            clearInterval(activeAutoPlayTimer);
+            activeAutoPlayTimer = null;
+        }
         setTimeout(() => {
             modal.style.display = "none";
             document.body.style.overflow = "auto";
+            if (modalBody) modalBody.innerHTML = '';
         }, 300); // Wait for transition
     }
 }
 
 function openModal(project) {
     if (!modal) return;
+
+    if (activeAutoPlayTimer) {
+        clearInterval(activeAutoPlayTimer);
+        activeAutoPlayTimer = null;
+    }
 
     // Populate Modal Content
     // Re-use logic to generate carousel, but adapted for modal
@@ -624,7 +642,7 @@ function openModal(project) {
 
         // Initialize carousel inside modal
         if (project.images.length > 1) {
-            initCarousel(modalBody.querySelector('.carousel-container'), project.images.length, false);
+            initCarousel(modalBody.querySelector('.carousel-container'), project.images.length, true);
         }
     }
 

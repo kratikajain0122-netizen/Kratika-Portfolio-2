@@ -465,21 +465,9 @@ function initCarousel(container, slideCount, enableAutoPlay = false) {
         if (activeAutoPlayTimer === autoPlayTimer) activeAutoPlayTimer = null;
     }
 
-    // Start auto-play initially (only if visible)
+    // Start auto-play initially
     if (enableAutoPlay) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startAutoPlay();
-                } else {
-                    stopAutoPlay();
-                }
-            });
-        }, { threshold: 0.5 }); // 50% visible
-
-        observer.observe(container);
-    } else {
-        // If auto-play is disabled (e.g. modal), we don't need observer
+        startAutoPlay();
     }
 
     // Pause on interaction

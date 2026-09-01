@@ -55,7 +55,6 @@ const categorySlugs = {
     'projects-grid': 'instagram-carousels',
     'logos-grid': 'logo-designs',
     'festive-grid': 'festive-posts',
-    'thumbnails-grid': 'instagram-thumbnails',
     'stories-grid': 'instagram-stories',
     'product-design-grid': 'product-design'
 };
@@ -64,7 +63,6 @@ const categorySlugToGridId = {
     'instagram-carousels': 'projects-grid',
     'logo-designs': 'logos-grid',
     'festive-posts': 'festive-grid',
-    'instagram-thumbnails': 'thumbnails-grid',
     'instagram-stories': 'stories-grid',
     'product-design': 'product-design-grid'
 };
@@ -76,7 +74,6 @@ function findProjectBySlug(slug) {
         typeof projectsData !== 'undefined' ? projectsData : [],
         typeof logoData !== 'undefined' ? logoData : [],
         typeof festiveData !== 'undefined' ? festiveData : [],
-        typeof thumbnailData !== 'undefined' ? thumbnailData : [],
         typeof storiesData !== 'undefined' ? storiesData : [],
         typeof productDesignData !== 'undefined' ? productDesignData : []
     ];
@@ -91,7 +88,6 @@ function getCategorySlugForProject(project) {
     if (typeof projectsData !== 'undefined' && projectsData.includes(project)) return 'instagram-carousels';
     if (typeof logoData !== 'undefined' && logoData.includes(project)) return 'logo-designs';
     if (typeof festiveData !== 'undefined' && festiveData.includes(project)) return 'festive-posts';
-    if (typeof thumbnailData !== 'undefined' && thumbnailData.includes(project)) return 'instagram-thumbnails';
     if (typeof storiesData !== 'undefined' && storiesData.includes(project)) return 'instagram-stories';
     if (typeof productDesignData !== 'undefined' && productDesignData.includes(project)) return 'product-design';
     return null;
@@ -286,11 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderProjects(festiveData, 'festive-grid');
             }
 
-            // Render Thumbnails (if data exists)
-            if (typeof thumbnailData !== 'undefined') {
-                renderProjects(thumbnailData, 'thumbnails-grid');
-            }
-
             // Render Instagram Stories (if data exists)
             if (typeof storiesData !== 'undefined') {
                 renderProjects(storiesData, 'stories-grid');
@@ -356,8 +347,6 @@ function getDesignType(containerId) {
             return 'Logo Design';
         case 'festive-grid':
             return 'Festive Post';
-        case 'thumbnails-grid':
-            return 'Instagram Thumbnail';
         case 'stories-grid':
             return 'Instagram Story';
         case 'product-design-grid':

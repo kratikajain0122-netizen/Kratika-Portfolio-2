@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kratika Jain — Graphic Designer & Visual Artist from Ujjain, MP. Specializing in brand identities, social media creatives, logo design, and packaging. Available for freelance projects.">
+    <meta name="keywords" content="Kratika Jain, Graphic Designer, Visual Artist, Brand Identity, Logo Design, Social Media Creatives, Canva, Figma, Ujjain">
     <title>Kratika Jain | Graphic Designer & Visual Artist</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
@@ -27,6 +29,7 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="projects.html">Portfolio</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -40,7 +43,7 @@
             <div class="container hero-content">
                 <div class="hero-text animate-on-scroll">
                     <p class="greeting">👋 Hey, I'm Kratika Jain</p>
-                    <h1>I Design <span class="highlight">Brands & Experiences</span></h1>
+                    <h1>I Design <span class="highlight" id="hero-highlight">Brands & Experiences</span></h1>
                     <p class="subtitle">Passionate and detail-oriented graphic designer with hands-on experience in
                         creating brand identities, social media creatives, and marketing visuals. Specializes in
                         minimal, clean, and brand-aligned visual design that combines aesthetics with purpose.</p>
@@ -168,7 +171,61 @@
                         <div class="edu-icon"><i class="fas fa-school"></i></div>
                         <div class="edu-details">
                             <h3>Secondary School Education</h3>
-                            <p>St. Paul’s Convent | 2020 – 2023</p>
+                            <p>St. Paul's Convent | 2020 – 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Skills & Tools</h2>
+                <p class="section-description animate-on-scroll" style="margin-bottom: 50px;">The design tools and skills I use to craft compelling visual stories and brand experiences.</p>
+                <div class="skills-showcase animate-on-scroll">
+                    <!-- Design Tools -->
+                    <div class="skill-pillar">
+                        <div class="skill-pillar-header">
+                            <span class="skill-pillar-icon"><i class="fas fa-palette"></i></span>
+                            <h3>Design Tools</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fas fa-brush"></i> Canva Pro</span>
+                            <span class="skill-tag"><i class="fas fa-vector-square"></i> Adobe Illustrator</span>
+                            <span class="skill-tag"><i class="fas fa-image"></i> Adobe Photoshop</span>
+                            <span class="skill-tag"><i class="fas fa-pencil-ruler"></i> Figma</span>
+                            <span class="skill-tag"><i class="fas fa-star"></i> Adobe InDesign</span>
+                        </div>
+                    </div>
+                    <!-- Design Skills -->
+                    <div class="skill-pillar">
+                        <div class="skill-pillar-header">
+                            <span class="skill-pillar-icon"><i class="fas fa-lightbulb"></i></span>
+                            <h3>Design Skills</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Brand Identity</span>
+                            <span class="skill-tag">Logo Design</span>
+                            <span class="skill-tag">Social Media Creatives</span>
+                            <span class="skill-tag">Packaging Design</span>
+                            <span class="skill-tag">Typography</span>
+                            <span class="skill-tag">Color Theory</span>
+                            <span class="skill-tag">Visual Storytelling</span>
+                        </div>
+                    </div>
+                    <!-- Soft Skills -->
+                    <div class="skill-pillar">
+                        <div class="skill-pillar-header">
+                            <span class="skill-pillar-icon"><i class="fas fa-users"></i></span>
+                            <h3>Professional Skills</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Client Communication</span>
+                            <span class="skill-tag">Brand Strategy</span>
+                            <span class="skill-tag">Creative Direction</span>
+                            <span class="skill-tag">Trend Research</span>
+                            <span class="skill-tag">Attention to Detail</span>
                         </div>
                     </div>
                 </div>
@@ -258,20 +315,31 @@
                         </div>
                     </div>
 
-                    <form class="contact-form animate-on-scroll" action="#" onsubmit="return false;">
+                    <form class="contact-form animate-on-scroll" id="contact-form" onsubmit="sendEmail(event)">
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="New Portfolio Message 🎨">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
                         <div class="form-group">
-                            <label>Name <span style="color:red;">*</span></label>
-                            <input type="text" placeholder="Your Name" required>
+                            <label for="contact-name">Name <span style="color:red;">*</span></label>
+                            <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <label>Email <span style="color:red;">*</span></label>
-                            <input type="email" placeholder="Your Email" required>
+                            <label for="contact-email">Email <span style="color:red;">*</span></label>
+                            <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <label>Message</label>
-                            <textarea placeholder="Your Message" rows="5"></textarea>
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="Project Inquiry / Collaboration">
                         </div>
-                        <button class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" placeholder="Tell me about your project..." rows="5"></textarea>
+                        </div>
+                        <button class="btn btn-primary" id="submit-btn" type="submit" style="width: 100%;">
+                            <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
@@ -280,14 +348,24 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Kratika Jain. All Rights Reserved.</p>
+            <p>&copy; 2026 Kratika Jain. All Rights Reserved.</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/kratika-jain-1713a62a5" target="_blank"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.behance.net/kratkajain01" target="_blank"><i class="fab fa-behance"></i></a>
+                <a href="https://www.linkedin.com/in/kratika-jain-1713a62a5" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.behance.net/kratkajain01" target="_blank" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="https://www.instagram.com/kratikajain0122" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="toast-notification">
+        <div class="toast-icon"><i id="toast-icon" class="fas fa-check-circle"></i></div>
+        <div class="toast-text">
+            <p id="toast-title" class="toast-title">Message Sent!</p>
+            <p id="toast-message" class="toast-message">I'll get back to you soon.</p>
+        </div>
+        <button class="toast-close" onclick="hideToast()"><i class="fas fa-times"></i></button>
+    </div>
 
     <!-- Project Modal -->
     <div id="project-modal" class="modal">
@@ -301,6 +379,109 @@
 
     <script src="projects_data.js"></script>
     <script src="script.js"></script>
+
+    <script type="text/javascript">
+        // =====================================================
+        // Contact Form — powered by FormSubmit.co (no setup needed!)
+        // Messages go directly to: kratikagangwal22@gmail.com
+        // NOTE: First submission will trigger a one-time verification
+        //       email from FormSubmit. Click "Activate Form" in that
+        //       email, then all future messages will arrive instantly.
+        // =====================================================
+
+        function sendEmail(event) {
+            event.preventDefault();
+
+            const btn = document.getElementById('submit-btn');
+            const form = document.getElementById('contact-form');
+
+            const name    = document.getElementById('contact-name').value.trim();
+            const email   = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value.trim() || 'Portfolio Inquiry';
+            const message = document.getElementById('contact-message').value.trim();
+
+            if (!name || !email) {
+                showToast('error', 'Missing Fields', 'Please fill in your name and email.');
+                return;
+            }
+
+            // Detect if running locally (localhost / file://)
+            const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+
+            if (isLocalhost) {
+                // --- Localhost: open Gmail compose directly ---
+                const gmailBody = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&to=kratikagangwal22@gmail.com&su=${encodeURIComponent('🎨 ' + subject + ' — from ' + name)}&body=${encodeURIComponent(gmailBody)}`;
+                window.open(gmailUrl, '_blank');
+                showToast('success', 'Opening Gmail! 📧', 'A Gmail compose window has opened. Just hit Send!');
+                form.reset();
+                return;
+            }
+
+            // --- Production: use FormSubmit.co AJAX ---
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i> Sending...';
+
+            // Send via FormSubmit AJAX endpoint
+            fetch('https://formsubmit.co/ajax/kratikagangwal22@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name:     name,
+                    email:    email,
+                    subject:  subject,
+                    message:  message,
+                    _subject: '🎨 New Portfolio Message from ' + name,
+                    _captcha: 'false'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success === 'true' || data.success === true) {
+                    showToast('success', 'Message Sent! 🎉', "Thank you, " + name + "! I'll get back to you soon.");
+                    form.reset();
+                } else {
+                    throw new Error('Send failed');
+                }
+            })
+            .catch(error => {
+                console.error('Form error:', error);
+                showToast('error', 'Failed to Send ❌', 'Please email me directly at kratikagangwal22@gmail.com');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message';
+            });
+        }
+
+        function showToast(type, title, message) {
+            const toast      = document.getElementById('toast-notification');
+            const toastTitle = document.getElementById('toast-title');
+            const toastMsg   = document.getElementById('toast-message');
+            const toastIcon  = document.getElementById('toast-icon');
+
+            toastTitle.textContent = title;
+            toastMsg.textContent   = message;
+
+            toast.className = 'toast-notification';
+            if (type === 'error') {
+                toast.classList.add('toast-error');
+                toastIcon.className = 'fas fa-exclamation-circle';
+            } else {
+                toastIcon.className = 'fas fa-check-circle';
+            }
+
+            toast.classList.add('show');
+            setTimeout(hideToast, 6000);
+        }
+
+        function hideToast() {
+            document.getElementById('toast-notification').classList.remove('show');
+        }
+    </script>
 </body>
 
 </html>

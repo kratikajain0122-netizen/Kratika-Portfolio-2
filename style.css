@@ -557,10 +557,172 @@ footer {
     transform: translateY(-3px);
 }
 
+/* --- Toast Notification --- */
+.toast-notification {
+    position: fixed;
+    bottom: -120px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #1a1a2e;
+    border: 1px solid rgba(123, 77, 255, 0.3);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 16px;
+    padding: 18px 20px;
+    min-width: 320px;
+    max-width: 400px;
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.8);
+    transition: bottom 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.toast-notification.show {
+    bottom: 30px;
+}
+
+.toast-notification.toast-error {
+    border-left-color: #ff4d6d;
+    border-color: rgba(255, 77, 109, 0.3);
+}
+
+.toast-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.toast-notification .toast-icon .fa-check-circle {
+    color: #4ade80;
+}
+
+.toast-notification.toast-error .toast-icon .fa-exclamation-circle {
+    color: #ff4d6d;
+}
+
+.toast-text {
+    flex: 1;
+}
+
+.toast-title {
+    font-weight: 700;
+    color: var(--text-primary) !important;
+    font-size: 1rem;
+    margin-bottom: 3px;
+}
+
+.toast-message {
+    font-size: 0.85rem;
+    color: var(--text-secondary) !important;
+    line-height: 1.4;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 4px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.toast-close:hover {
+    background: var(--glass-bg);
+    color: var(--text-primary);
+}
+
+/* Submit button loading state */
+#submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+@media (max-width: 480px) {
+    .toast-notification {
+        right: 15px;
+        left: 15px;
+        min-width: unset;
+        max-width: unset;
+    }
+    .toast-notification.show {
+        bottom: 15px;
+    }
+}
+
 /* --- Animations --- */
 .instagram-btn:hover {
     opacity: 0.8;
     text-decoration: underline;
+}
+
+/* Typing cursor for hero highlight */
+#hero-highlight::after {
+    content: '|';
+    display: inline-block;
+    color: var(--accent-primary);
+    animation: blink-cursor 0.8s step-end infinite;
+    margin-left: 3px;
+    font-weight: 300;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Floating animation for profile image */
+.profile-img {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Shimmer effect on hover for category cards */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulsing glow on accent buttons */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: inherit;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+.btn-primary:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }
 
 /* --- Project Modal Styles --- */
@@ -901,6 +1063,129 @@ footer {
         grid-template-columns: 1fr;
         padding: 30px;
         gap: 30px;
+    }
+}
+
+/* --- Skills Showcase (New) --- */
+.skills-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-showcase::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(123, 77, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.skill-pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.skill-pillar:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.skill-pillar-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 4px;
+}
+
+.skill-pillar-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.skill-pillar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.skill-pillar-icon i {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.1rem;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    white-space: nowrap;
+}
+
+.skill-tag i {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.85rem;
+}
+
+.skill-tag:hover {
+    background: rgba(123, 77, 255, 0.1);
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px -5px rgba(123, 77, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .skills-showcase {
+        padding: 30px;
+    }
+    .skill-tag {
+        font-size: 0.85rem;
+        padding: 8px 14px;
     }
 }
 

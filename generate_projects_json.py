@@ -37,27 +37,32 @@ custom_descriptions = {
     "PC vell Fire": "A premium roller pen design for Pierre Cardin, featuring a sleek metallic finish and ergonomic grip.",
     "PC Legacy White Gold RP": "Luxury redefined. Packaging and product design for the Legacy White Gold collection.",
     "PC Royal Salute white the gold roller pen": "Royal elegance in a pen. A high-end concept focusing on gold accents and minimalist white aesthetics.",
-    "Stain Gold Ball Pen": "Classic gold finish ball pen design, targeting the corporate gifting sector.",
-    "PC Momento BP": "Modern and stylish ball pen concept for everyday professional use.",
+    "PC Coffee Brew": "Rich coffee-inspired luxury roller pen carousel post for Pierre Cardin, combining warm tones with sleek metallic accents.",
+    "PC Heritage": "Classic heritage series showcase for Pierre Cardin, highlighting timeless craftsmanship, refined balance, and metallic detailing.",
+    "Stain Gold Ball Pen": "Classic gold finish ball pen design, targeting the corporate gifting sector with premium packaging.",
+    "PC Coffee Irish": "Sleek and rich Irish coffee themed carousel post highlighting premium pen finishes, metallic clips, and elegant typography.",
+    "Flair Raw Pencil": "Eco-friendly natural wood pencil series carousel for Flair, emphasizing sustainable craft, comfortable grip, and smooth writing.",
+    "Flair Raw Pencil ": "Eco-friendly natural wood pencil series carousel for Flair, emphasizing sustainable craft, comfortable grip, and smooth writing.",
+    "Flair Plug GP": "Vibrant promotional carousel post for Flair Plug GP pens, featuring bold product callouts and ergonomic highlights.",
+    "Hauser Art Venture": "Creative and inspiring visual identity for the Art Venture line, showcasing vibrant sketch tools for young artists.",
+    "Hauser Luma": "Modern and bright aesthetic for Hauser Luma pens, featuring pastel body hues and smooth fluid ink flow.",
+    "Hauser HC-801": "High-precision calculator & desk tool carousel design for Hauser HC-801, built with clean tech visuals and intuitive key layouts.",
+    "Hauser Numerix": "Sleek numerical device and desk calculator promotional carousel created for Hauser Numerix series.",
+    "Hauser Numerix ": "Sleek numerical device and desk calculator promotional carousel created for Hauser Numerix series.",
+    "Hauser P2P Pencil": "Modern mechanical pencil carousel post for Hauser P2P, focusing on grip ergonomics, lead protection, and refill mechanism.",
+    "Hauser Icy Super Dark Pencil": "Cool pastel-themed promo carousel for Hauser Icy Super Dark pencils, targeting students and artists with dark lead clarity.",
+    "Froyo Pencil": "Playful, pastel-flavored pencil packaging and carousel post design for Hauser Froyo series, inspiring fun daily sketch sessions.",
+    "Doms Art Vault Kit": "Premium art kit carousel showcase for Doms Art Vault, highlighting multi-tool art supplies and rich color palettes for young creators.",
+    "Doms Smart Kit": "Comprehensive stationery kit packaging, designed for high shelf visibility, compactness, and complete student utility.",
+    "Doms Creatist Kit": "Artistic kit box design, inspiring young creators with bold graphics, vibrant colors, and versatile drawing tools.",
     "Doms Inxtra": "Vibrant and playful packaging design for Doms Inxtra, appealing to young students.",
     "DOMS Poster Colours": "Colorful and engaging box design for Doms Poster Colours, highlighting creativity.",
-    "Doms Smart Kit": "Comprehensive stationery kit packaging, designed for visibility and compactness.",
-    "Doms Creatist Kit": "Artistic kit box design, inspiring young creators with bold graphics.",
     "Doms Cubo Eraser": "Innovative geometric packaging for the Cubo Eraser series.",
     "DOMS Inxify Softy": "Soft-touch pen promotion visuals, focusing on comfort and smooth writing.",
-    "Mi-201N": "Minimalist tech-inspired stationery design for MI.",
-    "Mi-847": "Sleek and functional product design, aligning with MI's clean design philosophy.",
-    "Flair Raw Pencil": "Eco-friendly natural wood look for Flair Raw Pencils. Simple yet impactful.",
-    "Flair Move X": "Dynamic and energetic packaging for the Move X series.",
-    "Flair Mark Mechanical 0.7mm": "Technical precision highlighted in the blister pack design for this mechanical pencil.",
-    "Flair Arti Graff": "Bold and artistic branding for the Arti Graff sketching collection.",
-    "Flair Carbonix Mechanical Pencil": "Futuristic design elements for the Carbonix range, emphasizing durability.",
     "Maped Clip Boards": "Functional yet stylish clipboard designs for Maped, using brand colors efficiently.",
-    "Maped Color'Peps Ocean 2": "Underwater themed illustrations for the Color'Peps Ocean series.",
+    "Maped Color'Peps Ocean 2": "Underwater themed illustrations and vibrant layout design for the Maped Color'Peps Ocean series.",
     "Color Pencil 12 Shades": "Standard 12-shade pack design, focusing on color accuracy and brightness.",
     "Hauser One pencil": "Premium wooden pencil packaging for Hauser, exuding quality and tradition.",
-    "Hauser Art Venture": "Creative and inspiring visual identity for the Art Venture line.",
-    "Hauser Luma": "Modern and bright aesthetic for Hauser Luma pens.",
     "Hauser Zoodle": "Fun and quirky character-based design for the Zoodle kid's range.",
     "Hauser Xo Mate": "Sleek and professional blister card design for Xo Mate.",
     "Hauser Pixel Fine liner": "Precision-focused packaging for fine liners, using grid patterns.",
@@ -66,14 +71,24 @@ custom_descriptions = {
     "Banker BP": "Reliable and classic design for the Banker Ball Pen.",
     "Montex Glow": "Neon-inspired visuals for the Montex Glow range.",
     "Mega Meter Montex": "Highlighting longevity and ink capacity in the Mega Meter packaging.",
-    "BigInIT insta gudi post": "Vibrant social media creative celebrating the spirit of Gudi Padwa.",
-    "BigInIT insta holika dahan post": "Festive Holika Dahan post designed for BigInIT's social media.",
+    "Montex Ploom Chhota Bheem": "Fun character-branded fountain & gel pen carousel for Montex Ploom featuring Chhota Bheem graphics.",
+    "BigInIT insta gudi post": "Vibrant social media creative celebrating the spirit of Gudi Padwa with traditional festive motifs.",
+    "BigInIT insta holika dahan post": "Festive Holika Dahan post designed for BigInIT's social media, capturing warm glowing festive vibes.",
+    "BigInIT": "Engaging corporate festive greeting creative designed for BigInIT social media branding.",
     "Design Dharma": "Designed brand logo and visual identity assets, capturing the brand's unique modern essence and style.",
     "Lumora Candles": "Logo design capturing the calm, warm, and handcrafted essence of eco-friendly candles.",
     "Sthir": "Logo and brand symbol designed for Sthir, capturing stillness, stability, and premium clean aesthetics.",
-    "Cafe Biblio": "A charming cafe logo concept blending library theme and cozy literary vibes with visual design.",
-    "Hauser Icy Super Dark Pencil": "Designed during my internship at Student Yard.",
-    "Froyo Pencil": "Designed during my internship at Student Yard."
+    "Cafe Biblio": "A charming cafe logo concept blending library theme and cozy literary vibes with minimalist visual design.",
+    "4": "Vibrant and engaging vertical Instagram story layout created for promotional campaigns.",
+    "Kidgets Brother's Day Story": "Heartwarming Brother's Day special Instagram story designed with fun illustrations for Kidgets.",
+    "Kidgets Happy National Best friend day ": "Engaging National Best Friend Day Instagram story creative for Kidgets featuring playful visual elements.",
+    "Kidgets International Day of Yoga 21st June": "Serene International Day of Yoga Instagram story designed for Kidgets with minimalist wellness graphics.",
+    "Shape Happy National Best friend day ": "Bold and modern National Best Friend Day story post designed for Shape.",
+    "Shape Page Story ": "Brand presentation and promotional vertical Instagram story designed with sleek typography for Shape.",
+    "Shape World Environment Day 5th June": "Eco-inspired World Environment Day Instagram story designed with green aesthetic elements for Shape.",
+    "Qimati Thank you card": "Elegant thank you insert card designed for luxury jewelry brand Qimati, featuring gold foil aesthetics and minimal typography.",
+    "Tulsava Bag Design": "Custom product carry bag packaging designed for Tulsava, showcasing front and back layout designs with elegant branding.",
+    "Tulsava Thank You Card": "Charming thank you insert card designed for Tulsava, enhancing unboxing experience with warm personal messaging."
 }
 
 # Curated list of Top 10 Projects to display in Carousel
@@ -262,20 +277,60 @@ def scan_stories(directory_name):
     if not os.path.exists(directory_name):
         return data
     
+    story_metadata = {
+        "1.jpg": {
+            "brand": "Gujarat Titans",
+            "title": "Gujarat Titans IPL Champions Story",
+            "description": "IPL Champions celebratory story design created for Gujarat Titans."
+        },
+        "4.jpg": {
+            "brand": "Royal Challengers Bengaluru",
+            "title": "RCB IPL Champions Story",
+            "description": "IPL Champions celebratory story design created for Royal Challengers Bengaluru."
+        },
+        "Kidgets Brother's Day Story.jpg": {
+            "brand": "Kidgets",
+            "title": "Brother's Day Special Story",
+            "description": "Heartwarming Brother's Day special Instagram story designed for Kidgets."
+        },
+        "Kidgets Happy National Best friend day .jpg": {
+            "brand": "Kidgets",
+            "title": "National Best Friend Day Story",
+            "description": "Engaging National Best Friend Day Instagram story creative designed for Kidgets."
+        },
+        "Kidgets International Day of Yoga 21st June.jpg": {
+            "brand": "Kidgets",
+            "title": "International Day of Yoga Story",
+            "description": "Serene International Day of Yoga Instagram story designed for Kidgets."
+        },
+        "Shape Happy National Best friend day .jpg": {
+            "brand": "Shape",
+            "title": "National Best Friend Day Story",
+            "description": "Bold and modern National Best Friend Day story post designed for Shape."
+        },
+        "Shape Page Story .jpg": {
+            "brand": "Shape",
+            "title": "Brand Highlights Story",
+            "description": "Brand presentation and promotional vertical Instagram story designed for Shape."
+        },
+        "Shape World Environment Day 5th June.jpg": {
+            "brand": "Shape",
+            "title": "World Environment Day Story",
+            "description": "Eco-inspired World Environment Day Instagram story designed for Shape."
+        }
+    }
+
     files = [f for f in os.listdir(directory_name) if f.lower().endswith(('.jpg', '.jpeg', '.png')) and not f.startswith('.')]
     files.sort()
     
     for img_file in files:
         product_path = os.path.join(directory_name, img_file)
-        title_clean = os.path.splitext(img_file)[0]
+        meta = story_metadata.get(img_file, {
+            "brand": "Stories",
+            "title": os.path.splitext(img_file)[0].replace('_', ' '),
+            "description": f"Instagram Story design created for {directory_name}."
+        })
         
-        # Determine brand
-        brand = "Stories"
-        if "kidgets" in title_clean.lower():
-            brand = "Kidgets"
-        elif "shape" in title_clean.lower():
-            brand = "Shape"
-            
         aspect_ratio = 9/16
         try:
             with Image.open(product_path) as img:
@@ -283,27 +338,17 @@ def scan_stories(directory_name):
                 aspect_ratio = w / h
         except Exception as e:
             print(f"Error reading image {img_file}: {e}")
-            
-        description = f"Instagram Story design created for {brand}."
-        if "brother" in title_clean.lower():
-            description = "Brother's Day special Instagram story designed for Kidgets."
-        elif "yoga" in title_clean.lower():
-            description = "International Day of Yoga Instagram story designed for Kidgets."
-        elif "environment" in title_clean.lower():
-            description = "World Environment Day Instagram story designed for Shape."
-        elif "page story" in title_clean.lower():
-            description = "Brand presentation and promotional Instagram story designed for Shape."
 
         data.append({
-            "brand": brand,
-            "title": title_clean,
+            "brand": meta["brand"],
+            "title": meta["title"],
             "folder": directory_name,
             "images": [img_file],
-            "description": description,
+            "description": meta["description"],
             "instagram_link": "",
             "aspect_ratio": aspect_ratio,
             "sort_order": 999,
-            "slug": generate_slug(brand, title_clean, img_file)
+            "slug": generate_slug(meta["brand"], meta["title"], img_file)
         })
     return data
 
@@ -316,10 +361,11 @@ def scan_product_design(directory_name):
     
     for item in items:
         item_path = os.path.join(directory_name, item)
+            
         if os.path.isdir(item_path):
             # Group all images in the subdirectory into a single project carousel
             images = [f for f in os.listdir(item_path) if f.lower().endswith(('.jpg', '.jpeg', '.png')) and not f.startswith('.')]
-            images.sort(key=lambda x: int(os.path.splitext(x)[0]) if os.path.splitext(x)[0].isdigit() else x)
+            images.sort(key=lambda x: (0 if "front" in x.lower() else (1 if "back" in x.lower() else 2), int(os.path.splitext(x)[0]) if os.path.splitext(x)[0].isdigit() else x))
             
             if images:
                 aspect_ratio = 1.0 # default
@@ -335,6 +381,8 @@ def scan_product_design(directory_name):
                 description = f"Product packaging and thank you card design for {title_clean}."
                 if "qimati" in title_clean.lower():
                     description = "Elegant thank you insert card designed for luxury jewelry brand Qimati."
+                elif "tulsava" in title_clean.lower() and "bag" in title_clean.lower():
+                    description = "Custom product carry bag packaging designed for Tulsava."
                 elif "tulsava" in title_clean.lower():
                     description = "Charming thank you insert card designed for Tulsava."
 

@@ -49,7 +49,7 @@
                         minimal, clean, and brand-aligned visual design that combines aesthetics with purpose.</p>
                     <div class="hero-btns">
                         <a href="#contact" class="btn btn-primary">Let's Collaborate</a>
-                        <a href="Docs/kratika_jain_resume.pdf" target="_blank" class="btn btn-secondary">View Resume</a>
+                        <a href="Docs/Kratika_Jain_Resume.pdf" target="_blank" class="btn btn-secondary">View Resume</a>
                     </div>
                 </div>
                 <div class="hero-image animate-on-scroll">
@@ -382,79 +382,57 @@
 
     <script type="text/javascript">
         // =====================================================
-        // Contact Form — powered by FormSubmit.co (no setup needed!)
-        // Messages go directly to: kratikagangwal22@gmail.com
-        // NOTE: First submission will trigger a one-time verification
-        //       email from FormSubmit. Click "Activate Form" in that
-        //       email, then all future messages will arrive instantly.
+        // Contact Form — Gmail Compose (100% reliable, works everywhere)
+        // When someone submits: their Gmail opens pre-filled → they click Send
+        // Messages arrive directly at: kratikagangwal22@gmail.com
         // =====================================================
 
         function sendEmail(event) {
             event.preventDefault();
 
-            const btn = document.getElementById('submit-btn');
-            const form = document.getElementById('contact-form');
+            const form    = document.getElementById('contact-form');
+            const btn     = document.getElementById('submit-btn');
 
             const name    = document.getElementById('contact-name').value.trim();
             const email   = document.getElementById('contact-email').value.trim();
             const subject = document.getElementById('contact-subject').value.trim() || 'Portfolio Inquiry';
             const message = document.getElementById('contact-message').value.trim();
 
+            // Validate required fields
             if (!name || !email) {
-                showToast('error', 'Missing Fields', 'Please fill in your name and email.');
+                showToast('error', '⚠️ Missing Fields', 'Please fill in your Name and Email.');
                 return;
             }
 
-            // Detect if running locally (localhost / file://)
-            const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname);
+            if (!email.includes('@')) {
+                showToast('error', '⚠️ Invalid Email', 'Please enter a valid email address.');
+                return;
+            }
 
-            if (isLocalhost) {
-                // --- Localhost: open Gmail compose directly ---
-                const gmailBody = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-                const gmailUrl = `https://mail.google.com/mail/?view=cm&to=kratikagangwal22@gmail.com&su=${encodeURIComponent('🎨 ' + subject + ' — from ' + name)}&body=${encodeURIComponent(gmailBody)}`;
-                window.open(gmailUrl, '_blank');
-                showToast('success', 'Opening Gmail! 📧', 'A Gmail compose window has opened. Just hit Send!');
+            // Build Gmail compose URL — works on localhost AND live site
+            const emailSubject = `🎨 ${subject} — from ${name}`;
+            const emailBody    = `Hi Kratika,\n\nYou have a new message from your portfolio:\n\n👤 Name: ${name}\n📧 Email: ${email}\n📝 Subject: ${subject}\n\n💬 Message:\n${message}\n\n---\nSent from: ${window.location.href}`;
+
+            const gmailUrl = `https://mail.google.com/mail/?view=cm`
+                + `&to=kratikagangwal22@gmail.com`
+                + `&su=${encodeURIComponent(emailSubject)}`
+                + `&body=${encodeURIComponent(emailBody)}`;
+
+            // Open Gmail in new tab
+            const gmailWindow = window.open(gmailUrl, '_blank');
+
+            if (gmailWindow) {
+                showToast('success', 'Gmail Khul Gaya! 📧', `${name}, Gmail mein "Send" dabao — message mil jayega!`);
                 form.reset();
-                return;
+            } else {
+                // Popup was blocked — fallback to mailto:
+                const mailtoUrl = `mailto:kratikagangwal22@gmail.com`
+                    + `?subject=${encodeURIComponent(emailSubject)}`
+                    + `&body=${encodeURIComponent(emailBody)}`;
+                window.location.href = mailtoUrl;
+                showToast('success', 'Email App Khul Raha! 📧', 'Apne email app mein Send karo.');
+                form.reset();
             }
-
-            // --- Production: use FormSubmit.co AJAX ---
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i> Sending...';
-
-            // Send via FormSubmit AJAX endpoint
-            fetch('https://formsubmit.co/ajax/kratikagangwal22@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name:     name,
-                    email:    email,
-                    subject:  subject,
-                    message:  message,
-                    _subject: '🎨 New Portfolio Message from ' + name,
-                    _captcha: 'false'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success === 'true' || data.success === true) {
-                    showToast('success', 'Message Sent! 🎉', "Thank you, " + name + "! I'll get back to you soon.");
-                    form.reset();
-                } else {
-                    throw new Error('Send failed');
-                }
-            })
-            .catch(error => {
-                console.error('Form error:', error);
-                showToast('error', 'Failed to Send ❌', 'Please email me directly at kratikagangwal22@gmail.com');
-            })
-            .finally(() => {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message';
-            });
         }
 
         function showToast(type, title, message) {
